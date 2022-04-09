@@ -10,13 +10,13 @@ exports.createEnrol = CatchAsync(async (req, res, next) => {
 
   const savedEnrol = await newEnrol.save();
   let populated = await savedEnrol.populate("student");
-  let theID = await populated.student._id;
+  // let theID = await populated.student._id;
   //IS THE GUEST ENROLED HE BECOME THE VIRTUAL STUDENT
-  let changing = await User.findByIdAndUpdate(
-    { _id: theID },
-    { role: "student" },
-    { new: true }
-  );
+  // let changing = await User.findByIdAndUpdate(
+  //   { _id: theID },
+  //   { role: "student" },
+  //   { new: true }
+  // );
   console.log(changing);
   res.status(200).json({
     massage: "success",
@@ -24,6 +24,26 @@ exports.createEnrol = CatchAsync(async (req, res, next) => {
   });
 });
 
+exports.autorizeEnrol = CatchAsync(async (req, res, next) => {
+  const id = req.params.id;
+
+  const foundEnrol = await Enrol.findByIdAndUpdate({ _id: id })
+    .populate("student")
+    .populate("course");
+  let theID = await foundEnrol.student._id;
+  //   //IS THE GUEST ENROLED HE BECOME THE VIRTUAL STUDENT
+  let changingRight = await User.findByIdAndUpdate(
+    { _id: theID },
+    { role: "student" },
+    { new: true }
+  );
+
+  res.status(200).json({
+    status: "success",
+    changedright: changingRight,
+    tobechanged: foundEnrol,
+  });
+});
 exports.findAllEnrol = CatchAsync(async (req, res, next) => {
   const { student, course, sort } = req.query;
 
