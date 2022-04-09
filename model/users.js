@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const crypto = require("crypto");
+const { type } = require("express/lib/response");
 
 const UserSchema = new mongoose.Schema({
   img: { type: String },
@@ -26,6 +27,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
     unique: [true, "this phone allready in use please provide other"],
   },
+  course: { type: String, default: "none" },
   password: {
     type: String,
     required: true,

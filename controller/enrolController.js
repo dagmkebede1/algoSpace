@@ -31,10 +31,11 @@ exports.autorizeEnrol = CatchAsync(async (req, res, next) => {
     .populate("student")
     .populate("course");
   let theID = await foundEnrol.student._id;
+  let theCourse = await foundEnrol.course.title;
   //   //IS THE GUEST ENROLED HE BECOME THE VIRTUAL STUDENT
   let changingRight = await User.findByIdAndUpdate(
     { _id: theID },
-    { role: "student" },
+    { role: "student", course: theCourse },
     { new: true }
   );
 
