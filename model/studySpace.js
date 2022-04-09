@@ -2,6 +2,17 @@ const mongoose = require("mongoose");
 
 const studyspaceSchema = new mongoose.Schema(
   {
+    course: {
+      type: String,
+      enum: {
+        values: [
+          "programming language",
+          "website development",
+          "graphics design",
+        ],
+        message: "${VALUE} is not supported",
+      },
+    },
     firstp: {
       type: String,
       required: [true, "please provide the program details"],
