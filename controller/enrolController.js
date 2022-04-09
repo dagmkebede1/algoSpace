@@ -1,0 +1,61 @@
+const CatchAsync = require("../utils/CatchAsync");
+const Enrol = require("../model/enrol");
+const User = require("../model/users");
+const factory = require("./factoryController");
+
+exports.createEnrol = CatchAsync(async (req, res, next) => {
+  if (!req.body.student) req.body.student = req.user.id;
+  if (!req.body.course) req.body.course = req.params.id;
+  const newEnrol = new Enrol(req.body);
+
+  const savedEnrol = await newEnrol.save();
+  let populated = await savedEnrol.populate("student");
+  let theID = await populated.student._id;
+  //IS THE GUEST ENROLED HE BECOME THE VIRTUAL STUDENT
+  let changing = await User.findByIdAndUpdate(
+    { _id: theID },
+    { role: "student" },
+    { new: true }
+  );
+  console.log(changing);
+  res.status(200).json({
+    massage: "success",
+    data: { savedEnrol },
+  });
+});
+
+exports.findAllEnrol = CatchAsync(async (req, res, next) => {
+  const { student, course, sort } = req.query;
+
+  let QueryObj = {};
+  if (student) {
+    QueryObj.student = { $regex: student, $options: "i" };
+  }
+  if (course) {
+    QueryObj.course = { $regex: course, $options: "i" };
+  }
+
+  console.log(QueryObj);
+  let result = Enrol.find(QueryObj);
+  if (sort) {
+    const sortlist = sort.split(",").join(" ");
+    result = result.sort(sortlist);
+  } else {
+    result = result.sort("createdAt");
+  }
+  const foundEnrol = await result;
+  if (!foundEnrol) {
+    res.status(200).json({
+      message: "success!",
+      data: `there is no Enrol in the system`,
+    });
+  } else {
+    res.status(200).json({
+      message: "success!",
+      data: { foundEnrol },
+      total: foundEnrol.length,
+    });
+  }
+});
+
+exports.deleteEnrol = factory.deleteOne(Enrol);
