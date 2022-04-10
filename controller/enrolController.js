@@ -17,7 +17,7 @@ exports.createEnrol = CatchAsync(async (req, res, next) => {
   //   { role: "student" },
   //   { new: true }
   // );
-  console.log(changing);
+  // console.log(changing);
   res.status(200).json({
     massage: "success",
     data: { savedEnrol },

@@ -19,5 +19,9 @@ Router.route("/enrol/:id").delete(
   AuthController.restrictTo("admin"),
   enrolController.deleteEnrol
 );
-
+Router.route("/enrol/:id/authorize").patch(
+  AuthController.protect,
+  AuthController.restrictTo("admin"),
+  enrolController.autorizeEnrol
+);
 module.exports = Router;

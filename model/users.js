@@ -27,7 +27,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
     unique: [true, "this phone allready in use please provide other"],
   },
-  course: { type: String, default: "none" },
+  course: { type: Array, default: null },
   password: {
     type: String,
     required: true,
