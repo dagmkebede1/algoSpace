@@ -23,5 +23,6 @@ const announcementSchema = new mongoose.Schema(
 
 announcementSchema.pre(/^find/, function (next) {
   this.find({ seen: false });
+  next();
 });
 module.exports = mongoose.model("announcement", announcementSchema);

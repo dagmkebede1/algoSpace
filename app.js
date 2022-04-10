@@ -10,6 +10,7 @@ const enrolRouter = require("./route/enrolRouter");
 const questionRouter = require("./route/questionRouter");
 const hireInstructRouter = require("./route/hiredInstructRouter");
 const studySpaceRouter = require("./route/studyspaceRouter");
+const announcementRouter = require("./route/announcementRouter");
 
 const answerRouter = require("./route/answerRouter");
 const globalErrorHanddler = require("./middlewares/errorHanddler");
@@ -54,6 +55,7 @@ app.use(courseRouter);
 app.use(hireInstructRouter);
 app.use(enrolRouter);
 app.use(studySpaceRouter);
+app.use(announcementRouter);
 app.use(userRouter);
 
 app.use(notFound);
