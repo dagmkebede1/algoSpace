@@ -31,7 +31,7 @@ exports.getAnnouncement = CatchAsync(async (req, res, next) => {
 exports.HideAnnouncement = CatchAsync(async (req, res, next) => {
   const id = req.params.id;
 
-  const HidedAnnounce = Announcement.findByIdAndUpdate(
+  const HidedAnnounce = await Announcement.findByIdAndUpdate(
     { _id: id },
     { $set: { seen: true } }
   );
