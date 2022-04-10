@@ -5,7 +5,7 @@ const HiredInstructorController = require("../controller/hiredInstructorControll
 
 //RECIVING THE ENROLED STUDENT ALONG THEIR COURSES
 
-Router.route("/hireInstructor").get(
+Router.route("/getHireRequest").get(
   AuthController.protect,
   AuthController.restrictTo("admin"),
   HiredInstructorController.findAllHired
