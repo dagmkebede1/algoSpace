@@ -13,8 +13,8 @@ Router.route("/studyspace")
   .get(AuthController.restrictTo("admin"), studySpaceController.getAllSpace);
 //INSTRUCTORS CAN GET AND UPDATE THIER OWNS STUDENTS STUDYSPACE
 Router.route("/student/studyspace").get(
-  AuthController.restrictTo("instructor"),
-  studySpaceController.getspace
+  AuthController.restrictTo("instructor", "admin"),
+  studySpaceController.getMyStudentSpace
 );
 Router.route("/student/studyspace/:id")
   .patch(
@@ -28,6 +28,6 @@ Router.route("/student/studyspace/:id")
 //STUDENDTS CAN GET THIER OWN STUDYSPACE BASED ON THEIR COURSES
 Router.route("/My/studyspace").get(
   AuthController.restrictTo("student", "admin"),
-  studySpaceController.getspace
+  studySpaceController.getMyspace
 );
 module.exports = Router;

@@ -19,6 +19,13 @@ const studyspaceSchema = new mongoose.Schema(
       type: String,
       required: [true, "Please provide the vedio call link"],
     },
+    createdBy: [
+      {
+        type: mongoose.Schema.ObjectId,
+        ref: "User",
+      },
+    ],
+
     done: {
       type: Boolean,
       default: false,

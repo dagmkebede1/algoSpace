@@ -3,16 +3,26 @@ const CatchAsync = require("../utils/CatchAsync");
 const factory = require("./factoryController");
 
 exports.createSpace = CatchAsync(async (req, res, next) => {
-  const { course, firstp, list, secondp, link } = req.body;
+  // let { course, firstp, list, secondp, link } = req.body;
+  let createdby = req.user.id;
 
-  const newSpace = new studySpace(req.body);
-  const savedSpace = newSpace.save();
+  console.log(createdby);
+  const newSpace = await studySpace.create({
+    course: req.body.course,
+    firstp: req.body.firstp,
+    list: req.body.list,
+    secondp: req.body.secondp,
+    link: req.body.link,
+    createdBy: createdby,
+  });
 
   res.status(200).json({
     status: "success",
-    spacedata: savedSpace,
+    spacedata: newSpace,
   });
 });
+
+//UPDATING THE SPACE IN CASE THERE IS EDIT OF MISTAKE
 exports.updateSpace = CatchAsync(async (req, res, next) => {
   const id = req.params.id;
   // const course = req.user.course;
@@ -26,7 +36,9 @@ exports.updateSpace = CatchAsync(async (req, res, next) => {
     updateddata: updatedSpace,
   });
 });
-exports.getspace = CatchAsync(async (req, res, next) => {
+
+//STUDENTS GETTING THIER SPACES BASED ON THIER COURSE
+exports.getMyspace = CatchAsync(async (req, res, next) => {
   // const id = req.user.id;
   const course = req.user.course;
 
@@ -39,6 +51,20 @@ exports.getspace = CatchAsync(async (req, res, next) => {
     spacedata: foundSpace,
   });
 });
+
+//GETTING THE SPACE BY THE ONE WHO CREATED IT
+exports.getMyStudentSpace = CatchAsync(async (req, res, next) => {
+  const Userid = req.user.id;
+
+  const foundSpace = await studySpace.find({ createdBy: Userid });
+
+  res.status(200).json({
+    status: "success",
+    spacedata: foundSpace,
+  });
+});
+
+//DELETING THE SPACE BY ANY AUTHORIZED PERSON( 'ADMIN', 'INSTRUCTOR')
 exports.deletSpace = CatchAsync(async (req, res, next) => {
   const id = req.params.id;
 
@@ -54,6 +80,7 @@ exports.deletSpace = CatchAsync(async (req, res, next) => {
   });
 });
 
+//GETTING ALL THE SPACE EXISTED: BY THE ADMIN
 exports.getAllSpace = CatchAsync(async (req, res, next) => {
   const allSpace = await studySpace.find();
 
