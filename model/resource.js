@@ -15,6 +15,12 @@ const resourceSchema = new mongoose.Schema(
     fileThree: {
       type: String,
     },
+    linkOne: {
+      type: String,
+    },
+    linkTwo: {
+      type: String,
+    },
   },
   { timestamps: true }
 );
