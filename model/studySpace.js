@@ -29,6 +29,7 @@ const studyspaceSchema = new mongoose.Schema(
 
 studyspaceSchema.pre(/^find/, function (next) {
   this.find({ done: false });
+  next();
 });
 
 module.exports = mongoose.model("Studyspace", studyspaceSchema);
