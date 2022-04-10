@@ -8,6 +8,7 @@ const courseRouter = require("./route/courseRouter");
 const authRouter = require("./route/authRouter");
 const enrolRouter = require("./route/enrolRouter");
 const questionRouter = require("./route/questionRouter");
+const hireInstructRouter = require("./route/hiredInstructRouter");
 
 const answerRouter = require("./route/answerRouter");
 const globalErrorHanddler = require("./middlewares/errorHanddler");
@@ -49,6 +50,7 @@ app.use(authRouter);
 app.use(questionRouter);
 app.use(answerRouter);
 app.use(courseRouter);
+app.use(hireInstructRouter);
 app.use(enrolRouter);
 app.use(userRouter);
 

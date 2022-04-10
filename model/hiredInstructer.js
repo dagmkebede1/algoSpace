@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const enrolSchema = new mongoose.Schema(
+const hireSchema = new mongoose.Schema(
   {
     instructor: {
       type: mongoose.Schema.ObjectId,
@@ -15,7 +15,7 @@ const enrolSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-enrolSchema.pre(/^find/, function (next) {
+hireSchema.pre(/^find/, function (next) {
   this.populate({
     path: "instructor",
     select: "firstname lastname email phone role",
@@ -26,4 +26,4 @@ enrolSchema.pre(/^find/, function (next) {
   next();
 });
 
-module.exports = mongoose.model("Enrol", enrolSchema);
+module.exports = mongoose.model("HiredInstructor", hireSchema);

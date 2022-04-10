@@ -31,10 +31,11 @@ exports.autorizeHired = CatchAsync(async (req, res, next) => {
     .populate("instructor")
     .populate("course");
   let theID = await foundHired.instructor._id;
+  let theCourse = await foundHired.course.title;
   //   //IS THE GUEST ENROLED HE BECOME THE VIRTUAL STUDENT
   let changingRight = await User.findByIdAndUpdate(
     { _id: theID },
-    { role: "instructor" },
+    { role: "instructor", course: theCourse },
     { new: true }
   );
 
