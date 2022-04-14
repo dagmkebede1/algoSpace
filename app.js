@@ -2,6 +2,7 @@ const express = require("express");
 const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
 const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
 require("dotenv").config();
 const userRouter = require("./route/userRouter");
 const courseRouter = require("./route/courseRouter");
@@ -13,6 +14,7 @@ const studySpaceRouter = require("./route/studyspaceRouter");
 const announcementRouter = require("./route/announcementRouter");
 
 const answerRouter = require("./route/answerRouter");
+const path = require("path");
 const globalErrorHanddler = require("./middlewares/errorHanddler");
 const notFound = require("./route/notFound");
 const AppError = require("./utils/AppError");
@@ -34,6 +36,10 @@ const Limiter = rateLimit({
 });
 app.use("/", Limiter);
 app.use(express.json({ limit: "10kb" }));
+app.use(cookieParser());
+app.set("view engine", "pug");
+app.set("views", path.join(__dirname, "views"));
+app.use(express.static(path.join(__dirname, "public")));
 //Data Sanitization against NoSQL query injections
 app.use(mongoSanitize());
 
@@ -47,7 +53,15 @@ app.use(
     whitelist: ["price"],
   })
 );
-
+app.get("/h", (req, res) => {
+  res.status(200).render("base");
+});
+app.get("/pp", (req, res) => {
+  res.status(200).render("profile");
+});
+app.get("/ss", (req, res) => {
+  res.status(200).render("studyspace");
+});
 app.use(authRouter);
 app.use(questionRouter);
 app.use(answerRouter);
