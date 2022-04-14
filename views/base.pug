@@ -1,0 +1,79 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel='stylesheet', href='/css/base.css')
+    link(rel='stylesheet', href='/css/studyspace.css')
+    link(rel='stylesheet', href='/css/profile.css')
+
+
+    title Welcome to | StudySpace
+  body 
+    .container-all
+      .navigation
+        form.form(action='#' method='post')
+          .search
+            input.input(type='text' placeholder='Search Courses')
+            button.submit
+              svg.search-icon(fill='currentColor' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg')
+                path(d='M9 9a2 2 0 114 0 2 2 0 01-4 0z')
+                path(fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a4 4 0 00-3.446 6.032l-2.261 2.26a1 1 0 101.414 1.415l2.261-2.261A4 4 0 1011 5z' clip-rule='evenodd')
+        h1.logo StudySpace
+        nav
+          ul
+            li fullname
+            li
+              img(src='/img/ppic.jpg' alt='profile picture')
+              svg.setting-icon(fill='currentColor' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg')
+                path(fill-rule='evenodd' d='M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z' clip-rule='evenodd')
+      section.side-bar
+        .side-container
+          ul
+            li
+              a(href='/h')
+                //  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" /></svg> 
+                span Home
+            li
+              a(href='/m')
+                svg(classname='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg')
+                  path(strokelinecap='round' strokelinejoin='round' strokewidth='{2}' d='M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9')
+                span Announcement
+            li
+              a(href='/ss')
+                svg(classname='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg')
+                  path(strokelinecap='round' strokelinejoin='round' strokewidth='{2}' d='M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2')
+                span StudyBoard
+            li
+              a(href='/s')
+                svg(classname='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg')
+                  path(strokelinecap='round' strokelinejoin='round' strokewidth='{2}' d='M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z')
+                span Resourse
+            li
+              a(href='/g')
+                svg(classname='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg')
+                  path(strokelinecap='round' strokelinejoin='round' strokewidth='{2}' d='M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10')
+                span Courses
+            li
+              a(href='/pp')
+                svg(classname='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg')
+                  path(strokelinecap='round' strokelinejoin='round' strokewidth='{2}' d='M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4')
+                span Profile
+            li
+              a(href='/s')
+                svg(classname='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg')
+                  path(strokelinecap='round' strokelinejoin='round' strokewidth='{2}' d='M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z')
+                  path(strokelinecap='round' strokelinejoin='round' strokewidth='{2}' d='M15 12a3 3 0 11-6 0 3 3 0 016 0z')
+                span Setting
+          .colors
+            .grey
+            .pink
+            .dark
+          .about
+            span AlgoNet is the newly built study space, for any help contact us on: support@algorithmiot.com
+      section.main
+        .main-container
+        block content 
+          h1 hi 
+    script(src='/js/script.js')

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="signup.css" />
+    <title>Sign Up</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="sign-up-box">
+        <h2>StudySpace</h2>
+        <form action="#" method="post">
+          <div class="profile-img">
+            <!-- <label for="p-img">Profile Picture</label> -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+            </svg>
+            <input id="p-img" type="file" />
+          </div>
+          <div class="input-box">
+            <div class="firstname">
+              <label for="fname">Firstname</label>
+              <input id="fname" name="firstname" type="text" />
+            </div>
+            <div class="lastname">
+              <label for="lname">Lastname</label>
+              <input id="lname" name="lastname" type="text" />
+            </div>
+            <div class="email">
+              <label for="email">Email Address</label>
+              <input id="email" name="email" type="email" />
+            </div>
+            <div class="gender">
+              <label for="gender">Gender</label>
+              <select name="gender" id="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+            <div id="password" class="password">
+              <label for="password">Password</label>
+              <input name="password" id="password" type="password" />
+            </div>
+            <div class="passwordConfirm">
+              <label for="passwordConfirm">Password Confirm</label>
+              <input
+                id="passwordConfirm"
+                name="passwordConform"
+                type="password"
+              />
+            </div>
+          </div>
+          <button>Sign Up</button>
+        </form>
+        <footer>&copy; 2022, Algorithm.io</footer>
+      </div>
+    </div>
+  </body>
+</html>
