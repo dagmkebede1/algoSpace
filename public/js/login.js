@@ -10,8 +10,8 @@ const login = async (email, password) => {
       },
     });
     console.log(res.data);
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
   }
 };
 

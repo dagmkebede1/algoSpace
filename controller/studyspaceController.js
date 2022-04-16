@@ -46,10 +46,11 @@ exports.getMyspace = CatchAsync(async (req, res, next) => {
 
   const foundSpace = await studySpace.find({ course: course });
 
-  res.status(200).json({
-    status: "success",
-    spacedata: foundSpace,
-  });
+  // res.status(200).json({
+  //   status: "success",
+  //   spacedata: foundSpace,
+  // });
+  res.status(200).render("studyspace", { foundSpace });
 });
 
 //GETTING THE SPACE BY THE ONE WHO CREATED IT
