@@ -1,6 +1,7 @@
 meta(charset='UTF-8')
 meta(http-equiv='X-UA-Compatible' content='IE=edge')
 meta(name='viewport' content='width=device-width,initial-scale=1')
+//- meta(http-equiv='Content-Security-Policy' content="...")
 link(rel='stylesheet' href='/css/login.css')
 title Sign In
 .container
@@ -10,11 +11,12 @@ title Sign In
         path(stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z')
       h1 StudySpace
     .login-box
-      label(for='email') Email
-      input#email(name='email' type='email')
-      label(for='password') Password
-      input#password(name='password' type='password')
-      button Sign In
+      form.form()
+        label(for='email') Email
+        input#email(name='email' type='email')
+        label(for='password') Password
+        input#password(name='password' type='password')
+        button Sign In
     .forgot
       a(href='#') Forgot your password?
     .create
@@ -22,3 +24,6 @@ title Sign In
       a(href='#') Sign Up
     .copyright
       p © 2022 Algorithm.io
+script(src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js')
+script(src='/js/login.js')
+ 

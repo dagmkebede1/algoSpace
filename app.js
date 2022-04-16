@@ -13,6 +13,7 @@ const hireInstructRouter = require("./route/hiredInstructRouter");
 const studySpaceRouter = require("./route/studyspaceRouter");
 const announcementRouter = require("./route/announcementRouter");
 
+const getRouter = require("./route/getRouter");
 const answerRouter = require("./route/answerRouter");
 const path = require("path");
 const globalErrorHanddler = require("./middlewares/errorHanddler");
@@ -22,12 +23,12 @@ const CatchAsync = require("./utils/CatchAsync");
 const mongoSanitize = require("express-mongo-sanitize");
 const xss = require("xss-clean");
 const hpp = require("hpp");
-
+const cors = require("cors");
 const app = express();
 
 //Secure the Header
-app.use(helmet());
-
+// app.use(helmet());
+app.use(cors());
 //Limit the requsts from the same IP's....protections against {DDOS & brute forse attacts}
 const Limiter = rateLimit({
   max: 100,
@@ -62,6 +63,7 @@ app.get("/pp", (req, res) => {
 app.get("/ss", (req, res) => {
   res.status(200).render("studyspace");
 });
+app.use(getRouter);
 app.use(authRouter);
 app.use(questionRouter);
 app.use(answerRouter);
