@@ -1,0 +1,21 @@
+.navigation ul {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: end;
+}
+.navigation ul li {
+  list-style: none;
+}
+.navigation ul li a:link,
+.navigation ul li a:visited {
+  padding: 0.5rem;
+  text-decoration: none;
+  font-family: sans-serif;
+}
+.navigation ul li a:hover,
+.navigation ul li a:active {
+  background-color: aliceblue;
+  outline: 1px solid blueviolet;
+  border-radius: 1rem;
+}/*# sourceMappingURL=single.css.map */

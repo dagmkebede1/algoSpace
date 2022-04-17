@@ -1,30 +1,36 @@
-const activePage = window.location.pathname;
-const navLiinks = document
-  .querySelectorAll(".side-container a")
-  .forEach((link) => {
-    if (link.href.includes(`${activePage}`)) {
-      link.classList.add("active");
-    }
-  });
+let darkMode = localStorage.getItem("darkMode");
+const darkTogle = document.querySelector(".dark");
 
-const lightOne = document.querySelector(".grey");
-const darkOne = document.querySelector(".dark");
-const pinkOne = document.querySelector(".pink");
-const sideBar = document.querySelector(".side-bar");
-const navigation = document.querySelector(".navigation");
-const main = document.querySelector(".main");
-lightOne.addEventListener("click", () => {
-  sideBar.className = "side-bar";
-  navigation.className = "navigation";
-  main.className = "main";
+const enableDark = () => {
+  document.body.classList.add("dark");
+  localStorage.setItem("darkMode", "ok");
+};
+const disDark = () => {
+  document.body.classList.remove("dark");
+  localStorage.setItem("darkMode", null);
+};
+
+if (darkMode === "ok") {
+  enableDark();
+}
+
+darkTogle.addEventListener("click", () => {
+  darkMode = localStorage.getItem("darkMode");
+  if (darkMode !== "ok") {
+    // disLight();
+    // disPink();
+    enableDark();
+    console.log(darkMode);
+  } else {
+    disDark();
+    console.log(darkMode);
+  }
 });
-pinkOne.addEventListener("click", () => {
-  sideBar.className = "side-bar themepink";
-  navigation.className = "navigation themepink";
-  main.className = "main themepink";
-});
-darkOne.addEventListener("click", () => {
-  sideBar.className = "side-bar themedark";
-  navigation.className = "navigation themedark";
-  main.className = "main themedark";
+
+const activePage = window.location.pathname;
+const navLinks = document.querySelectorAll(".side-bar a").forEach((link) => {
+  console.log(activePage);
+  if (link.href.includes(`${activePage}`)) {
+    link.classList.add("active");
+  }
 });
