@@ -65,19 +65,23 @@ body {
   font-size: 1.5rem;
   color: #42484e;
 }
-.container .login .login-box .form button {
+.container .login .login-box .form .button {
   cursor: pointer;
   border: none;
+  outline: none;
   padding: 0.7rem 1.7rem;
   font-weight: 600;
-  margin-top: 1rem;
+  margin: 1rem auto;
+  width: 10rem;
   font-family: inherit;
   color: #fff;
   background-color: #1971c1;
   border-radius: 0.3rem;
   transition: all 0.3s;
 }
-.container .login .login-box .form button:hover {
+.container .login .login-box .form .button:hover {
+  outline: none;
+  border: none;
   background-color: #0663b9;
 }
 .container .login .forgot {

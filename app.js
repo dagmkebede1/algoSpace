@@ -54,15 +54,13 @@ app.use(
     whitelist: ["price"],
   })
 );
-app.get("/h", (req, res) => {
-  res.status(200).render("base");
-});
+
 app.get("/pp", (req, res) => {
   res.status(200).render("profile");
 });
-app.get("/ss", (req, res) => {
-  res.status(200).render("studyspace");
-});
+// app.get("/ss", (req, res) => {
+//   res.status(200).render("studyspace");
+// });
 app.use(getRouter);
 app.use(authRouter);
 app.use(questionRouter);
