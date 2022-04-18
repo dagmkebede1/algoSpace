@@ -7,8 +7,8 @@ const hideAlert = () => {
 
 const showAlert = (type, msg) => {
   hideAlert();
-  const markup = `<div> class="alert ${type}">${msg}</div>`;
-  document.querySelector("body").insertAdjacentElement("afterbegin", markup);
+  const markup = `<div class="alert alert-${type}">${msg}</div>`;
+  document.querySelector("body").insertAdjacentHTML("afterbegin", markup);
   window.setTimeout(hideAlert, 5000);
 };
 
@@ -23,15 +23,18 @@ const login = async (email, password) => {
         password,
       },
     });
-    if (res.data.status === "success!") {
+    if (res.data.status === "success") {
       showAlert("success", "logged on Successfully!");
       window.setTimeout(() => {
-        location.assign("/my/studyspace");
+        location.assign("/");
       }, 1500);
+      // alert("logged in succesfully!");
     }
     console.log(res.data);
-  } catch (error) {
-    showAlert("error", error.response.data.message);
+  } catch (err) {
+    showAlert("error", err.response.data.message);
+    console.log(err.response.data.message);
+    // alert("incorect email or password");
   }
 };
 

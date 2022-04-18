@@ -39,7 +39,7 @@ exports.updateMe = CatchAsync(async (req, res, next) => {
   )
     .res.status(200)
     .json({
-      status: "success!",
+      status: "success",
       data: { updatedUser },
     });
 });
@@ -49,7 +49,7 @@ exports.deleteMe = CatchAsync(async (req, res, next) => {
   await User.findByIdAndUpdate(req.user.id, { active: false });
 
   res.status(204).json({
-    status: "success!",
+    status: "success",
     data: null,
   });
 });
@@ -58,7 +58,7 @@ exports.deleteMe = CatchAsync(async (req, res, next) => {
 exports.getMe = CatchAsync(async (req, res, next) => {
   const doc = await User.findById(req.user.id);
   res.status(200).json({
-    status: "success!",
+    status: "success",
     data: doc,
   });
 });
@@ -96,12 +96,12 @@ exports.findAlluser = CatchAsync(async (req, res, next) => {
 
   if (!allUser) {
     res.status(200).json({
-      message: "success!",
+      message: "success",
       data: `there is no User in the system`,
     });
   } else {
     res.status(200).json({
-      message: "success!",
+      message: "success",
       data: { allUser },
     });
   }
@@ -112,7 +112,7 @@ exports.getUser = CatchAsync(async (req, res, next) => {
   const doc = await User.findOne({ _id: id }, { new: true });
 
   res.status(200).json({
-    status: "success!",
+    status: "success",
     data: doc,
   });
 });
@@ -121,7 +121,7 @@ exports.deleteUser = CatchAsync(async (req, res, next) => {
   const doc = await User.deleteOne({ _id: id }, { new: true });
 
   res.status(204).json({
-    status: "success!",
+    status: "success",
     data: doc,
   });
 });
@@ -140,7 +140,7 @@ exports.updateUserRole = CatchAsync(async (req, res, next) => {
   );
 
   res.status(200).json({
-    status: "success!",
+    status: "success",
     data: { updatedUserRole },
   });
 });

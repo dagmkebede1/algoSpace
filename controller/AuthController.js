@@ -70,7 +70,7 @@ exports.login = CatchAsync(async (req, res, next) => {
   };
   res.cookie("jwt", token, cookieOptions);
   res.status(200).json({
-    status: "success!",
+    status: "success",
     token: token,
   });
 });
@@ -126,29 +126,33 @@ exports.protect = CatchAsync(async (req, res, next) => {
   req.user = currentUser;
   next();
 });
-exports.isLoggedIn = CatchAsync(async (req, res, next) => {
+exports.isLoggedIn = async (req, res, next) => {
   if (req.cookies.jwt) {
     // verify token
-    const decoded = await promisify(jwt.verify)(
-      req.cookies.jwt,
-      process.env.JWT_SECRET
-    );
+    try {
+      const decoded = await promisify(jwt.verify)(
+        req.cookies.jwt,
+        process.env.JWT_SECRET
+      );
 
-    //check if user still exists
-    const currentUser = await User.findById(decoded.id);
-    if (currentUser) {
+      //check if user still exists
+      const currentUser = await User.findById(decoded.id);
+      if (currentUser) {
+        return next();
+      }
+      //4) cheach if user changed password after the token was issued
+      if (currentUser.changedPasswordAfter(decoded.iat)) {
+        return next();
+      }
+      // THERE IS LOGGED USER
+      res.locals.user = currentUser;
+      return next();
+    } catch (err) {
       return next();
     }
-    //4) cheach if user changed password after the token was issued
-    if (currentUser.changedPasswordAfter(decoded.iat)) {
-      return next();
-    }
-    // THERE IS LOGGED USER
-    res.locals.user = currentUser;
-    return next();
   }
   next();
-});
+};
 
 //specifing the roles
 exports.restrictTo = (...roles) => {
@@ -234,7 +238,7 @@ exports.resetPassword = CatchAsync(async (req, res, next) => {
   };
   res.cookie("jwt", token, cookieOptions);
   res.status(200).json({
-    status: "success!",
+    status: "success",
     token: token,
   });
 });
@@ -264,7 +268,7 @@ exports.updatePassword = CatchAsync(async (req, res, next) => {
   };
   res.cookie("jwt", token, cookieOptions);
   res.status(200).json({
-    status: "success!",
+    status: "success",
     token: token,
   });
 });

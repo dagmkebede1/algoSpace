@@ -67,12 +67,12 @@ exports.findAllHired = CatchAsync(async (req, res, next) => {
   const foundHired = await result;
   if (!foundHired) {
     res.status(200).json({
-      message: "success!",
+      message: "success",
       data: `there is no request to be instructor in the system`,
     });
   } else {
     res.status(200).json({
-      message: "success!",
+      message: "success",
       data: { foundHired },
       total: foundHired.length,
     });

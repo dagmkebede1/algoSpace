@@ -5,9 +5,9 @@ link(rel='stylesheet' href='/css/single.css')
 title single
 section.navigation
     if user
-        - console.log(user)
-        a(href='http://localhost:3000/my/studyspace') studyspace
-        a(href) log out
-    else
-        a(href='http://localhost:3000/login') Log in
-        a(href='http://localhost:3000/signup') Sign up
+    - console.log('hi there for check')
+    a(href='http://localhost:3000/my/studyspace') studyspace
+    a(href) log out
+else 
+    a(href='http://localhost:3000/login') Log in
+    a(href='http://localhost:3000/signup') Sign up

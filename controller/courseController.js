@@ -76,12 +76,12 @@ exports.findAllCourse = CatchAsync(async (req, res, next) => {
   // const allCourse = await Course.find(QueryObj);
   if (!allCourse) {
     res.status(200).json({
-      message: "success!",
+      message: "success",
       data: `there is no Course in the system`,
     });
   } else {
     res.status(200).json({
-      message: "success!",
+      message: "success",
       data: { allCourse },
       total: allCourse.length,
     });

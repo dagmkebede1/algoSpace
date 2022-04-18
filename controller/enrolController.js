@@ -67,12 +67,12 @@ exports.findAllEnrol = CatchAsync(async (req, res, next) => {
   const foundEnrol = await result;
   if (!foundEnrol) {
     res.status(200).json({
-      message: "success!",
+      message: "success",
       data: `there is no Enrol in the system`,
     });
   } else {
     res.status(200).json({
-      message: "success!",
+      message: "success",
       data: { foundEnrol },
       total: foundEnrol.length,
     });
