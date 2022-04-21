@@ -17,8 +17,6 @@ if (darkMode === "ok") {
 darkTogle.addEventListener("click", () => {
   darkMode = localStorage.getItem("darkMode");
   if (darkMode !== "ok") {
-    // disLight();
-    // disPink();
     enableDark();
     console.log(darkMode);
   } else {

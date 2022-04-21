@@ -18,6 +18,10 @@ Router.route("/course/:id")
     AuthController.restrictTo("admin"),
     courseController.updateCourse
   )
-  .delete(courseController.deleteCourse);
+  .delete(
+    AuthController.protect,
+    AuthController.restrictTo("admin"),
+    courseController.deleteCourse
+  );
 
 module.exports = Router;

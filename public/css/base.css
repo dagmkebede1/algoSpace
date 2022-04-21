@@ -231,6 +231,28 @@ body.dark .main ol li {
 .container-all .main {
   transition: all 0.8s;
 }
+.container-all .main .intrance {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15rem;
+  gap: 2rem;
+}
+.container-all .main .intrance-title {
+  color: #1c7ed6;
+  font-size: 3.7rem;
+  letter-spacing: 0.1rem;
+  font-weight: 600;
+}
+.container-all .main .intrance-text {
+  font-size: 2.5rem;
+  letter-spacing: 0.5rem;
+}
+.container-all .main .user {
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+}
 
 @media screen and (max-width: 800px) {
   .container-all {
@@ -280,4 +302,4 @@ body.dark .main ol li {
   .container-all .side-bar .profile .name {
     display: none;
   }
-} /*# sourceMappingURL=index.css.map */
+}

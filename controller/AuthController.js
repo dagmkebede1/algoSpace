@@ -80,9 +80,10 @@ exports.logout = (req, res) => {
     expires: new Date(Date.now() + 10 * 1000),
     httpOnly: true,
   });
-  res.status(200).json({
-    status: "success",
-  });
+  res.status(200).redirect("/login");
+  // res.status(200).json({
+  //   status: "success",
+  // });
 };
 
 exports.protect = CatchAsync(async (req, res, next) => {
@@ -99,9 +100,10 @@ exports.protect = CatchAsync(async (req, res, next) => {
   }
 
   if (!token) {
-    return next(
-      new AppError("You are not logged in! Please log in to get access", 401)
-    );
+    return res.status(401).redirect("/login");
+    // return next(
+    //   new AppError("You are not logged in! Please log in to get access", 401)
+    // );
   }
   //2) Verification Token
   const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
@@ -109,18 +111,22 @@ exports.protect = CatchAsync(async (req, res, next) => {
   //3) checking if the user still exists
   const currentUser = await User.findById(decoded.id);
   if (!currentUser) {
-    return next(
-      new AppError(
-        "The user belonging to this token does no longer exist.",
-        401
-      )
-    );
+    return res.status(401).redirect("/login");
+
+    // return next(
+    //   new AppError(
+    //     "The user belonging to this token does no longer exist.",
+    //     401
+    //   )
+    // );
   }
   //4) cheach if user changed password after the token was issued
   if (currentUser.changedPasswordAfter(decoded.iat)) {
-    return next(
-      new AppError("User recently changed password! Please log in again", 401)
-    );
+    return res.status(401).redirect("/login");
+
+    // return next(
+    //   new AppError("User recently changed password! Please log in again", 401)
+    // );
   }
   //GRANT THE ACCESS!
   req.user = currentUser;
