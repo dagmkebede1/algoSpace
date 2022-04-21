@@ -1,19 +1,4 @@
-// import axios from "axios";
 import { showAlert } from "./alert.js";
-
-// const hideAlert = () => {
-//   const el = document.querySelector(".alert");
-//   if (el) el.parentElement.removeChild(el);
-// };
-
-// //type is success or error
-
-// const showAlert = (type, msg) => {
-//   hideAlert();
-//   const markup = `<div class="alert alert-${type}">${msg}</div>`;
-//   document.querySelector("body").insertAdjacentHTML("afterbegin", markup);
-//   window.setTimeout(hideAlert, 5000);
-// };
 
 const login = async (email, password) => {
   console.log(email, password);
@@ -31,13 +16,10 @@ const login = async (email, password) => {
       window.setTimeout(() => {
         location.assign("/");
       }, 1500);
-      // alert("logged in succesfully!");
     }
     console.log(res.data);
   } catch (err) {
     showAlert("error", err.response.data.message);
-    console.log(err.response.data.message);
-    // alert("incorect email or password");
   }
 };
 
