@@ -242,7 +242,8 @@ form .submit input[type="submit"]:focus {
   margin-bottom: 2rem;
 }
 
-.main-item-space .content a {
+.main-item-space .content a:link,
+.main-item-space .content a:visited {
   display: flex;
   width: 20rem;
   align-items: center;
@@ -261,7 +262,7 @@ form .submit input[type="submit"]:focus {
   background-color: #1665ab;
 }
 
-.main-item-space .content .delete:link,
+/* .main-item-space .content .delete:link,
 .main-item-space .content .delete:visited {
   display: flex;
   width: 20rem;
@@ -275,19 +276,32 @@ form .submit input[type="submit"]:focus {
   background-color: rgb(179, 14, 14);
   border-radius: 1rem;
   transition: all 0.3s;
-}
+} */
 
-.main-item-space .delete:hover,
-.main-item-space .delete:active {
-  color: darkred;
-}
 .main-item-space .delete:link,
 .main-item-space .delete:visited {
   padding: 1rem 0;
-  color: rgb(179, 14, 14);
+  color: #eb4d4b;
   text-decoration: none;
   font-size: 1.6rem;
   font-weight: 600;
+}
+.main-item-space .delete:hover,
+.main-item-space .delete:active {
+  color: #eb4d4b;
+  text-decoration: line-through;
+}
+.main-item-space .edit:link,
+.main-item-space .edit:visited {
+  padding: 1rem 0;
+  color: #20bf6b;
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+.main-item-space .edit:hover,
+.main-item-space .edit:active {
+  color: #086d37;
 }
 @media screen and (max-width: 800px) {
   .main-container {
