@@ -1,9 +1,9 @@
+require("dotenv").config();
 const express = require("express");
 const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
-require("dotenv").config();
 const userRouter = require("./route/userRouter");
 const courseRouter = require("./route/courseRouter");
 const authRouter = require("./route/authRouter");

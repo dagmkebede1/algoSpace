@@ -67,32 +67,43 @@ body.dark .main ol li {
 .container-all .side-bar {
   height: 100vh;
   display: flex;
+  position: fixed;
   flex-direction: column;
   justify-content: space-between;
+  width: 24rem;
+
   background-color: #f3f5f6;
 }
-.container-all .side-bar .logo {
+.container-all .side-bar .logo:link,
+.container-all .side-bar .logo:visited,
+.container-all .side-bar .logo:active {
   color: #292a2c;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 2rem;
   padding: 1rem 0;
+  text-decoration: none;
 }
+.container-all .side-bar .logo .logo-icon:hover,
 .container-all .side-bar .logo .logo-icon {
   width: 5rem;
   height: 5rem;
   fill: #343a40;
+  /* stroke: #858585; */
 }
-.container-all .side-bar .logo h2 {
+.container-all .side-bar .logo h2,
+.container-all .side-bar .logo h2:hover {
   font-size: 3rem;
 }
-.container-all .side-bar .logo h2 span {
-  color: #1c7ed6;
+.container-all .side-bar .logo h2 span,
+.container-all .side-bar .logo h2 span:hover {
+  color: #1c7ed6 !important;
 }
 .container-all .side-bar .space-nav .space-ul {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
 }
 .container-all .side-bar .space-nav .space-ul li {
   list-style: none;
@@ -105,15 +116,16 @@ body.dark .main ol li {
   display: flex;
   align-items: center;
   text-decoration: none;
-  padding: 0.8rem 0 0.8rem 2rem;
-  font-size: 1.6rem;
+  gap: 0.5rem;
+  padding: 0.7rem 0 0.7rem 2rem;
+  font-size: 1.5rem;
   font-weight: 500;
   color: #858585;
 }
 .container-all .side-bar .space-nav .space-ul li a:link svg,
 .container-all .side-bar .space-nav .space-ul li a:visited svg {
-  width: 3rem;
-  height: 3rem;
+  width: 2.7rem;
+  height: 2.7rem;
   stroke: #858585;
 }
 .container-all .side-bar .space-nav .space-ul li a:link span,
@@ -148,15 +160,16 @@ body.dark .main ol li {
   display: flex;
   align-items: center;
   text-decoration: none;
-  padding: 0.8rem 0 0.8rem 2rem;
-  font-size: 1.6rem;
+  padding: 0.7rem 0 0.7rem 2rem;
+  font-size: 1.5rem;
+
   font-weight: 500;
   color: #858585;
 }
 .container-all .side-bar .space-nav .set-ul li a:link svg,
 .container-all .side-bar .space-nav .set-ul li a:visited svg {
-  width: 3rem;
-  height: 3rem;
+  width: 2.7rem;
+  height: 2.7rem;
   stroke: #858585;
 }
 .container-all .side-bar .space-nav .set-ul li a:link span,
@@ -169,29 +182,57 @@ body.dark .main ol li {
   color: #343a40;
   border-radius: 2rem;
 }
+
+a:is(:link, :active, :visited).active {
+  background-color: #dee2e6;
+  border-radius: 2rem;
+}
+a:is(:link, :active, :visited).active span {
+  color: #212529;
+}
+a:is(:link, :active, :visited).active svg {
+  stroke: #212529 !important;
+}
+
 .container-all .side-bar .space-nav .set-ul li a:hover svg,
 .container-all .side-bar .space-nav .set-ul li a:active svg {
   stroke: #212529;
 }
 .container-all .side-bar .profile {
-  margin-top: 4rem;
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
 }
-.container-all .side-bar .profile img {
+.container-all .side-bar .profile .me:link,
+.container-all .side-bar .profile .me:visited,
+.container-all .side-bar .profile .me:hover,
+.container-all .side-bar .profile .me:active {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  background: none;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-direction: column;
+  border: none;
+  outline: none;
+}
+
+.container-all .side-bar .profile .me img {
   transition: all 0.8s;
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
   border: 1px solid #343a40;
 }
-.container-all .side-bar .profile img:hover {
-  transform: scale(2.5);
+.container-all .side-bar .profile .me img:hover {
+  transform: scale(1.3);
 }
-.container-all .side-bar .profile .name {
+.container-all .side-bar .profile .me .name {
   font-size: 1.4rem;
+  color: #292a2c;
 }
 .container-all .side-bar .profile .role {
   font-size: 1.2rem;
@@ -220,6 +261,7 @@ body.dark .main ol li {
   justify-content: center;
   gap: 1.7rem;
 }
+
 .container-all .side-bar .colors p {
   font-size: 1.4rem;
   font-weight: 500;
@@ -230,6 +272,7 @@ body.dark .main ol li {
 }
 .container-all .main {
   transition: all 0.8s;
+  grid-column: 2/-1;
 }
 .container-all .main .intrance {
   display: flex;
@@ -268,6 +311,16 @@ body.dark .main ol li {
   }
   .container-all .side-bar .logo h2 {
     color: #1c7ed6;
+  }
+  a:is(:link, :active, :visited).active {
+    background-color: #dee2e6;
+    border-radius: 0.5rem;
+  }
+  a:is(:link, :active, :visited).active span {
+    color: #212529;
+  }
+  a:is(:link, :active, :visited).active svg {
+    stroke: #212529 !important;
   }
   .container-all .side-bar .logo h2 span {
     display: none;

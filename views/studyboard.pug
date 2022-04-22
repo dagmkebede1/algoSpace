@@ -1,0 +1,48 @@
+extend base
+block content 
+    section.main
+        .main-container
+            .main-item-space
+                h2 A New Day!
+                ul
+                    li
+                        a(href='#') Activity
+                    li
+                        a(href='#') Training land
+                .content
+                    p Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem expedita ipsum sint voluptatem sed nam.
+                    ol
+                        li Lorem ipsum dolor sit.
+                        li Lorem ipsum dolor sit.
+                        li Lorem ipsum dolor sit.
+                        li Lorem ipsum dolor sit.
+                    p.join Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident iste enim quasi voluptate dignissimos temporibus.
+                    a(href='#') Join Class Room
+                - if(currentUser.role === 'admin' || currentUser.role === 'instructor'){
+                    a.edit(href='#') Edit Space
+                    a.delete(href='#') Destroy 
+
+                - }
+        if currentUser.role === 'admin' || currentUser.role === 'instructor'
+            .createspace
+                p.create Create a Study Space
+                form(action='#')
+                    .title
+                        label(for='title') Title
+                        input#title(name='title' type='text')
+                    .firstp
+                        label(for='firstp') Description
+                        textarea#firstp(name='firstp' cols='30' rows='10')
+                    .lists
+                        label(for='list') your Main 3 (three) points
+                        input(type='text')
+                        input(type='text')
+                        input(type='text')
+                    .secondp
+                        label(for) Last Words | meeting time | encouragements...
+                        textarea(name cols='40' rows='10')
+                    .meeting-link
+                        label(for='link') Room Link
+                        input#link(type='text' name='link')
+                    .submit
+                        input(type='submit' value='Create Space')

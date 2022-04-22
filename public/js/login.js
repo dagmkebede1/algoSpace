@@ -14,7 +14,7 @@ const login = async (email, password) => {
     if (res.data.status === "success") {
       showAlert("success", "logged on Successfully!");
       window.setTimeout(() => {
-        location.assign("/");
+        location.assign("/home");
       }, 1500);
     }
     console.log(res.data);

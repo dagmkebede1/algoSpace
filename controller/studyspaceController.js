@@ -40,9 +40,10 @@ exports.updateSpace = CatchAsync(async (req, res, next) => {
 //STUDENTS GETTING THIER SPACES BASED ON THIER COURSE
 exports.getMyspace = CatchAsync(async (req, res, next) => {
   // const id = req.user.id;
+  const currentUser = req.user;
   const course = req.user.course;
 
-  console.log(course);
+  // console.log(course);
 
   const foundSpace = await studySpace.find({ course: course });
 
@@ -50,19 +51,19 @@ exports.getMyspace = CatchAsync(async (req, res, next) => {
   //   status: "success",
   //   spacedata: foundSpace,
   // });
-  res.status(200).render("studyspace", { foundSpace });
+  res
+    .status(200)
+    .render("studyboard", { foundSpace: foundSpace, currentUser: currentUser });
 });
 
 //GETTING THE SPACE BY THE ONE WHO CREATED IT
 exports.getMyStudentSpace = CatchAsync(async (req, res, next) => {
   const Userid = req.user.id;
+  const currentUser = req.user;
 
   const foundSpace = await studySpace.find({ createdBy: Userid });
 
-  res.status(200).json({
-    status: "success",
-    spacedata: foundSpace,
-  });
+  res.status(200).render("studyboard", { foundSpace, currentUser });
 });
 
 //DELETING THE SPACE BY ANY AUTHORIZED PERSON( 'ADMIN', 'INSTRUCTOR')

@@ -26,8 +26,9 @@ darkTogle.addEventListener("click", () => {
 });
 
 const activePage = window.location.pathname;
-const navLinks = document.querySelectorAll(".side-bar a").forEach((link) => {
-  console.log(activePage);
+const navLinks = document.querySelectorAll("nav a").forEach((link) => {
+  // console.log(activePage);
+  console.log(link.href);
   if (link.href.includes(`${activePage}`)) {
     link.classList.add("active");
   }

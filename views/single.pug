@@ -4,10 +4,14 @@ meta(name='viewport' content='width=device-width,initial-scale=1')
 link(rel='stylesheet' href='/css/single.css')
 title single
 section.navigation
-    if user
-    - console.log('hi there for check')
-    a(href='http://localhost:3000/my/studyspace') studyspace
-    a(href) log out
-else 
-    a(href='http://localhost:3000/login') Log in
-    a(href='http://localhost:3000/signup') Sign up
+    - if(currentUser){
+        a(href='http://localhost:3000/my/studyspace') studyspace
+        a(href) log out
+    - }else{
+        - console.log('check out here!')
+        a(href='http://localhost:3000/login') Log in
+        a(href='http://localhost:3000/signup') Sign up
+    - }
+       
+
+        

@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.main-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.createspace {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.createspace p {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 500;
+  color: #1c7ed6;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+form .title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+form .title label {
+  font-size: 1.8rem;
+}
+form .title input {
+  width: 100%;
+  padding: 0.4rem 0.1rem;
+  font-size: 1.5rem;
+  color: #42484e;
+  border: 1px solid #c0c0c0;
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+}
+form .title input:hover,
+form .title input:focus {
+  border: 1px solid #2e2e2e;
+  outline: none;
+}
+form .firstp {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+form .firstp label {
+  font-size: 1.8rem;
+}
+form .firstp textarea {
+  width: 100%;
+  padding: 0.4rem 0.1rem;
+  font-size: 1.5rem;
+  color: #42484e;
+  border: 1px solid #c0c0c0;
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+}
+form .firstp textarea:hover,
+form .firstp textarea:focus {
+  border: 1px solid #2e2e2e;
+  outline: none;
+}
+form .lists {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+form .lists label {
+  font-size: 1.8rem;
+}
+form .lists input {
+  width: 100%;
+  padding: 0.4rem 0.1rem;
+  font-size: 1.5rem;
+  color: #42484e;
+  border: 1px solid #c0c0c0;
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+}
+form .lists input:hover,
+form .lists input:focus {
+  border: 1px solid #2e2e2e;
+  outline: none;
+}
+form .secondp {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+form .secondp label {
+  font-size: 1.8rem;
+}
+form .secondp textarea {
+  width: 100%;
+  padding: 0.4rem 0.1rem;
+  font-size: 1.5rem;
+  color: #42484e;
+  border: 1px solid #c0c0c0;
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+}
+form .secondp textarea:hover,
+form .secondp textarea:focus {
+  border: 1px solid #2e2e2e;
+  outline: none;
+}
+form .meeting-link {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+form .meeting-link label {
+  font-size: 1.8rem;
+}
+form .meeting-link input {
+  width: 100%;
+  padding: 0.4rem 0.1rem;
+  font-size: 1.5rem;
+  color: #42484e;
+  border: 1px solid #c0c0c0;
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+}
+form .meeting-link input:hover,
+form .meeting-link input:focus {
+  border: 1px solid #2e2e2e;
+  outline: none;
+}
+form .submit {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+form .submit input[type=submit] {
+  cursor: pointer;
+  border: none;
+  width: 15rem;
+  border-radius: 3px;
+  padding: 1rem 1.2rem;
+  font-size: 1.6rem;
+  color: #fff;
+  background-color: #1c7ed6;
+}
+form .submit input[type=submit]:hover,
+form .submit input[type=submit]:focus {
+  outline: none;
+  border: none;
+  background-color: #0663b9;
+}/*# sourceMappingURL=editspace.css.map */
