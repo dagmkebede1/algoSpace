@@ -10,7 +10,9 @@ exports.createSpace = CatchAsync(async (req, res, next) => {
   const newSpace = await studySpace.create({
     course: req.body.course,
     firstp: req.body.firstp,
-    list: req.body.list,
+    list1: req.body.list1,
+    list2: req.body.list2,
+    list3: req.body.list3,
     secondp: req.body.secondp,
     link: req.body.link,
     createdBy: createdby,
@@ -63,7 +65,9 @@ exports.getMyStudentSpace = CatchAsync(async (req, res, next) => {
 
   const foundSpace = await studySpace.find({ createdBy: Userid });
 
-  res.status(200).render("studyboard", { foundSpace, currentUser });
+  res
+    .status(200)
+    .render("studyboard", { foundSpace: foundSpace, currentUser: currentUser });
 });
 
 //DELETING THE SPACE BY ANY AUTHORIZED PERSON( 'ADMIN', 'INSTRUCTOR')

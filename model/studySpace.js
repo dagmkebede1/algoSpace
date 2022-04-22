@@ -9,8 +9,14 @@ const studyspaceSchema = new mongoose.Schema(
       type: String,
       required: [true, "please provide the program details"],
     },
-    list: {
-      type: Array,
+    list1: {
+      type: String,
+    },
+    list2: {
+      type: String,
+    },
+    list3: {
+      type: String,
     },
     secondp: {
       type: String,
@@ -19,12 +25,10 @@ const studyspaceSchema = new mongoose.Schema(
       type: String,
       required: [true, "Please provide the vedio call link"],
     },
-    createdBy: [
-      {
-        type: mongoose.Schema.ObjectId,
-        ref: "User",
-      },
-    ],
+    createdBy: {
+      type: mongoose.Schema.ObjectId,
+      ref: "User",
+    },
 
     done: {
       type: Boolean,

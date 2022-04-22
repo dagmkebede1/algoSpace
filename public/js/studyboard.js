@@ -1,41 +1,6 @@
-// import { createSpace } from "./studyboard.js";
 import { showAlert } from "./alert.js";
-let darkMode = localStorage.getItem("darkMode");
-const darkTogle = document.querySelector(".dark");
 
-const enableDark = () => {
-  document.body.classList.add("dark");
-  localStorage.setItem("darkMode", "ok");
-};
-const disDark = () => {
-  document.body.classList.remove("dark");
-  localStorage.setItem("darkMode", null);
-};
-
-if (darkMode === "ok") {
-  enableDark();
-}
-
-darkTogle.addEventListener("click", () => {
-  darkMode = localStorage.getItem("darkMode");
-  if (darkMode !== "ok") {
-    enableDark();
-    console.log(darkMode);
-  } else {
-    disDark();
-    console.log(darkMode);
-  }
-});
-
-const activePage = window.location.pathname;
-const navLinks = document.querySelectorAll("nav a").forEach((link) => {
-  // console.log(activePage);
-  console.log(link.href);
-  if (link.href.includes(`${activePage}`)) {
-    link.classList.add("active");
-  }
-});
-const createSpace = async (
+export const createSpace = async (
   course,
   firstp,
   list1,
@@ -44,7 +9,7 @@ const createSpace = async (
   secondp,
   link
 ) => {
-  // console.log(course, firstp);
+  console.log(course, firstp);
   try {
     const res = await axios({
       method: "POST",
@@ -67,11 +32,11 @@ const createSpace = async (
     }
     console.log(res.data);
   } catch (err) {
-    // showAlert("error", err.response.data.message);
-    showAlert("error", "error while creating space");
-    // console.log(err.response.data.message);
+    showAlert("error", err.response.data.message);
+    console.log(err.response.data.message);
   }
 };
+
 document.querySelector("form").addEventListener("submit", (e) => {
   e.preventDefault();
   const course = document.getElementById("course").value;

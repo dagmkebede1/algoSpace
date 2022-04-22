@@ -37,6 +37,7 @@ const Limiter = rateLimit({
 });
 app.use("/", Limiter);
 app.use(express.json({ limit: "10kb" }));
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
