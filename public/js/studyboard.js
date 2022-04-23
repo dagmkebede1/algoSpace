@@ -48,3 +48,11 @@ document.querySelector("form").addEventListener("submit", (e) => {
   const link = document.getElementById("link").value;
   createSpace(course, firstp, list1, list2, list3, secondp, link);
 });
+export const createSpaceFunction = () => {
+  const createSpaceBtn = document.getElementById("createSpaceBtn");
+  const createSpaceForm = document.querySelector(".createspace");
+  createSpaceBtn.addEventListener("click", () => {
+    createSpaceForm.style.display = "flex";
+    console.log("flexxxxxxxxxx");
+  });
+};

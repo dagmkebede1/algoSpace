@@ -1,5 +1,6 @@
 // import { createSpace } from "./studyboard.js";
 import { showAlert } from "./alert.js";
+import { createSpaceFunction } from "./studyboard.js";
 let darkMode = localStorage.getItem("darkMode");
 const darkTogle = document.querySelector(".dark");
 
@@ -35,6 +36,7 @@ const navLinks = document.querySelectorAll("nav a").forEach((link) => {
     link.classList.add("active");
   }
 });
+createSpaceFunction();
 const createSpace = async (
   course,
   firstp,

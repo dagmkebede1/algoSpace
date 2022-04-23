@@ -18,7 +18,7 @@ body {
 }
 
 .createspace {
-  display: flex;
+  display: none;
   flex-direction: column;
   max-width: 70rem;
   margin: 0 auto;

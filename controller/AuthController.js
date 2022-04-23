@@ -19,9 +19,10 @@ exports.signup = CatchAsync(async (req, res, next) => {
     firstname: req.body.firstname,
     lastname: req.body.lastname,
     email: req.body.email,
+    gender: req.body.gender,
     password: req.body.password,
     passwordConform: req.body.passwordConform,
-    // role: req.body.role,
+    //phote: req.body.file
   });
 
   const token = signToken(savedUser._id);
@@ -37,7 +38,7 @@ exports.signup = CatchAsync(async (req, res, next) => {
   //removing the password from the output of saved user but its found in the database!
   savedUser.password = undefined;
   res.status(200).json({
-    massage: "success",
+    status: "success",
     token,
     data: { savedUser },
   });

@@ -10,22 +10,25 @@ block content
                     li
                         a(href='#') Training land
                 .content
-                    p= `${foundSpace.course}` 
-                    p Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem expedita ipsum sint voluptatem sed nam.
-                    p= `${foundSpace.firstp}`
-                    ol
-                        li Lorem ipsum dolor sit.
-                        li= `${foundSpace.list1}`
-                        li Lorem ipsum dolor sit.
-                        li= `${foundSpace.list2}`
-                        li Lorem ipsum dolor sit.
-                        li= `${foundSpace.list3}`
-                        
-                    p.join Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident iste enim quasi voluptate dignissimos temporibus.
-                    a(href= `${foundSpace.link}`) Join Class Room
+                    each foudspace in foundSpace
+                        p= `${foundspace.course}` 
+                        p Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem expedita ipsum sint voluptatem sed nam.
+                        p= `${foundspace.firstp}`
+                        ol
+                            li Lorem ipsum dolor sit.
+                            li= `${foundspace.list1}`
+                            li Lorem ipsum dolor sit.
+                            li= `${foundspace.list2}`
+                            li Lorem ipsum dolor sit.
+                            li= `${foundspace.list3}`
+                            
+                        p.join Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident iste enim quasi voluptate dignissimos temporibus.
+                        a(href= `${foundspace.link}`) Join Class Room
+
                 - if(currentUser.role === 'admin' || currentUser.role === 'instructor'){
                     a.edit(href='#') Edit Space
                     a.delete(href='#') Destroy 
+                    button#createSpaceBtn Create New Space
 
                 - }
         if currentUser.role === 'admin' || currentUser.role === 'instructor'
