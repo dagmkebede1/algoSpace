@@ -42,6 +42,7 @@ body.dark .colors p {
 }
 body.dark .main {
   color: #dee2e6;
+  background-color: #495057 !important;
 }
 
 body.dark .main p {
@@ -291,6 +292,7 @@ a:is(:link, :active, :visited).active svg {
   font-weight: 500;
 }
 .container-all .side-bar .colors .color-box svg {
+  cursor: pointer;
   width: 3.5rem;
   height: 3.5rem;
 }
@@ -325,6 +327,16 @@ a:is(:link, :active, :visited).active svg {
   .container-all {
     display: grid;
     grid-template-columns: 7rem 1fr;
+  }
+  .container-all .side-bar {
+    height: 100vh;
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 7rem;
+
+    background-color: #f3f5f6;
   }
   .container-all .side-bar .logo {
     display: flex;

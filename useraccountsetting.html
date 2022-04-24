@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="setting.css" />
+  </head>
+  <body>
+    <div class="main-item_useraccount">
+      <div class="title"><h2>YOUR ACCOUNT SETTINGS</h2></div>
+      <div class="account_form">
+        <form class="profile_form" action="#" method="post">
+          <div class="profile-img">
+            <img src="ppic.jpg" alt="" />
+            <input id="p-img" type="file" />
+          </div>
+
+          <div class="algo-input-div">
+            <input id="fname" name="firstname" type="text" />
+            <label for="fname">Firstname</label>
+          </div>
+          <div class="algo-input-div">
+            <input id="lname" name="lastname" type="text" />
+            <label for="lname">Lastname</label>
+          </div>
+          <div class="algo-input-div">
+            <input id="email" name="email" type="email" />
+            <label for="email">Email Address</label>
+          </div>
+          <div class="algo-input-div">
+            <input id="phone" name="phone" type="text" />
+            <label for="phone">Phone Number</label>
+          </div>
+          <div class="algo-input-div">
+            <select name="gender" id="gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+            <label for="gender">Gender</label>
+          </div>
+          <div class="submit-div">
+            <input type="submit" value="UPDATE SETTINGS" />
+          </div>
+        </form>
+        <div class="simple-line"></div>
+        <p>PASSWORD CHANGE</p>
+        <form class="password_form" action="#">
+          <div id="password" class="algo-input-div">
+            <label for="password">Current Password</label>
+            <input
+              placeholder="*********"
+              name="currentpassword"
+              id="password"
+              type="password"
+            />
+          </div>
+          <div id="password" class="algo-input-div">
+            <label for="password">New Password</label>
+            <input
+              placeholder="*********"
+              name="newpassword"
+              id="password"
+              type="password"
+            />
+          </div>
+          <div class="algo-input-div">
+            <label for="passwordConfirm">Password Confirm</label>
+            <input
+              id="passwordConfirm"
+              placeholder="*********"
+              name="passwordConform"
+              type="password"
+            />
+          </div>
+          <div class="submit-div">
+            <input type="submit" value="CHANGE PASSWORD" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -26,17 +26,20 @@ exports.updateMe = CatchAsync(async (req, res, next) => {
     );
   }
   //2) Filtered Out unwanted fields
-  const filteredBody = filterObj(req.body, "firstname", "lastname", "email");
+  const filteredBody = filterObj(
+    req.body,
+    "firstname",
+    "lastname",
+    "email",
+    "gender",
+    "phone"
+  );
+  if (req.file) filteredBody.photo = req.file.filename;
   //3) Update user document
-  const updatedUser = await User.findByIdAndUpdate(
-    req.user.id,
-
-    filteredBody,
-    {
-      new: true,
-      runValidators: true,
-    }
-  )
+  const updatedUser = await User.findByIdAndUpdate(req.user.id, filteredBody, {
+    new: true,
+    runValidators: true,
+  })
     .res.status(200)
     .json({
       status: "success",
@@ -56,11 +59,20 @@ exports.deleteMe = CatchAsync(async (req, res, next) => {
 
 //geting his oun profile
 exports.getMe = CatchAsync(async (req, res, next) => {
-  const doc = await User.findById(req.user.id);
-  res.status(200).json({
-    status: "success",
-    data: doc,
-  });
+  const currentUser = await User.findById(req.user.id);
+  // res.status(200).json({
+  //   status: "success",
+  //   data: doc,
+  // });
+  res.status(200).render("profile", { currentUser });
+});
+exports.getMySetting = CatchAsync(async (req, res, next) => {
+  const currentUser = await User.findById(req.user.id);
+  // res.status(200).json({
+  //   status: "success",
+  //   data: doc,
+  // });
+  res.status(200).render("usersetting", { currentUser });
 });
 
 //ONLY FOR ADMINS

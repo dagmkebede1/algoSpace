@@ -1,15 +1,19 @@
 // import { createSpace } from "./studyboard.js";
 import { showAlert } from "./alert.js";
-import { createSpaceFunction } from "./studyboard.js";
+// import { createSpaceFunction } from "./studyboard.js";
+
+// togle dark button function
 let darkMode = localStorage.getItem("darkMode");
 const darkTogle = document.querySelector(".dark");
 
 const enableDark = () => {
   document.body.classList.add("dark");
+  console.log("its now dark");
   localStorage.setItem("darkMode", "ok");
 };
 const disDark = () => {
   document.body.classList.remove("dark");
+  console.log("its now light");
   localStorage.setItem("darkMode", null);
 };
 
@@ -28,15 +32,22 @@ darkTogle.addEventListener("click", () => {
   }
 });
 
+//active link function
 const activePage = window.location.pathname;
 const navLinks = document.querySelectorAll("nav a").forEach((link) => {
-  // console.log(activePage);
   console.log(link.href);
   if (link.href.includes(`${activePage}`)) {
     link.classList.add("active");
   }
 });
-createSpaceFunction();
+//toggling for creating new space
+const createSpaceBtn = document.getElementById("createSpaceBtn");
+const createSpaceForm = document.querySelector(".createspace");
+createSpaceBtn.addEventListener("click", () => {
+  createSpaceForm.style.display = "flex";
+  console.log("flexxxxxxxxxx");
+});
+//creating new space function
 const createSpace = async (
   course,
   firstp,
@@ -46,7 +57,6 @@ const createSpace = async (
   secondp,
   link
 ) => {
-  // console.log(course, firstp);
   try {
     const res = await axios({
       method: "POST",
