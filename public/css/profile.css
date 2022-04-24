@@ -90,6 +90,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  color: #212529;
 }
 .main .main-container .main-item-profile {
   margin-left: 2rem;
@@ -97,21 +98,23 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  color: #212529;
 }
 .main .main-container .main-item-profile .info .info-item {
   display: flex;
   align-items: center;
   gap: 2rem;
+  color: #212529;
 }
 .main .main-container .main-item-profile .info-item svg {
   width: 2.2rem;
   height: 2.2rem;
-  /* stroke: #292a2c; */
+  stroke: #292a2c;
 }
 .main .main-container .main-item-profile .info .info-item svg {
   width: 2.2rem;
   height: 2.2rem;
-  /* stroke: #292a2c; */
+  stroke: #292a2c;
 }
 .main .main-container .main-item-profile .info .info-item img {
   width: 2.5rem;

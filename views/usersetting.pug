@@ -6,8 +6,8 @@ block content
     .account_form
       form.profile_form(action='#' method='post')
         .profile-img
-          img(src='/img/ppic.jpg' alt)
-          input#p-img(type='file')
+          img(src= `/img/users/${currentUser.photo}` alt)
+          input#photo(type='file' name='photo' accept='image/*')
         .algo-input-div
           input#fname(name='firstname' type='text' placeholder= `${currentUser.firstname}`)
           label(for='fname') Firstname

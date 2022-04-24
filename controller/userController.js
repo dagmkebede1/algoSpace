@@ -35,16 +35,39 @@ exports.updateMe = CatchAsync(async (req, res, next) => {
     "phone"
   );
   if (req.file) filteredBody.photo = req.file.filename;
+  let thingsToBeUpdated = {};
+
+  if (filteredBody.firstname) {
+    thingsToBeUpdated.firstname = filteredBody.firstname;
+  }
+  if (filteredBody.lastname) {
+    thingsToBeUpdated.lastname = filteredBody.lastname;
+  }
+  if (filteredBody.email) {
+    thingsToBeUpdated.email = filteredBody.email;
+  }
+  if (filteredBody.phone) {
+    thingsToBeUpdated.phone = filteredBody.phone;
+  }
+  if (filteredBody.gender) {
+    thingsToBeUpdated.gender = filteredBody.gender;
+  }
+  if (filteredBody.photo) {
+    thingsToBeUpdated.photo = filteredBody.photo;
+  }
   //3) Update user document
-  const updatedUser = await User.findByIdAndUpdate(req.user.id, filteredBody, {
-    new: true,
-    runValidators: true,
-  })
-    .res.status(200)
-    .json({
-      status: "success",
-      data: { updatedUser },
-    });
+  const updatedUser = await User.findByIdAndUpdate(
+    req.user.id,
+    thingsToBeUpdated,
+    {
+      new: true,
+      runValidators: true,
+    }
+  );
+  res.status(200).json({
+    status: "success",
+    data: { updatedUser },
+  });
 });
 
 // deleting by the user = deActivating

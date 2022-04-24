@@ -1,7 +1,7 @@
 // import { createSpace } from "./studyboard.js";
 import { showAlert } from "./alert.js";
 // import { createSpaceFunction } from "./studyboard.js";
-
+import { updateSetting } from "./updatesetting.js";
 // togle dark button function
 let darkMode = localStorage.getItem("darkMode");
 const darkTogle = document.querySelector(".dark");
@@ -43,10 +43,12 @@ const navLinks = document.querySelectorAll("nav a").forEach((link) => {
 //toggling for creating new space
 const createSpaceBtn = document.getElementById("createSpaceBtn");
 const createSpaceForm = document.querySelector(".createspace");
-createSpaceBtn.addEventListener("click", () => {
-  createSpaceForm.style.display = "flex";
-  console.log("flexxxxxxxxxx");
-});
+if (createSpaceBtn) {
+  createSpaceBtn.addEventListener("click", () => {
+    createSpaceForm.style.display = "flex";
+    console.log("flexxxxxxxxxx");
+  });
+}
 //creating new space function
 const createSpace = async (
   course,
@@ -95,3 +97,22 @@ document.querySelector("form").addEventListener("submit", (e) => {
   const link = document.getElementById("link").value;
   createSpace(course, firstp, list1, list2, list3, secondp, link);
 });
+
+// UPDATING USER ACCOUNTS
+const userDataForm = document.querySelector(".profile_form");
+
+if (userDataForm) {
+  userDataForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const form = new FormData();
+    form.append("firstname", document.getElementById("fname").value);
+    form.append("lastname", document.getElementById("lname").value);
+    form.append("email", document.getElementById("email").value);
+    form.append("phone", document.getElementById("phone").value);
+    form.append("gender", document.getElementById("gender").value);
+    form.append("photo", document.getElementById("photo").files[0]);
+
+    console.log(form);
+    updateSetting(form, "data");
+  });
+}

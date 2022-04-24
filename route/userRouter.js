@@ -2,14 +2,15 @@ const express = require("express");
 const Router = express.Router();
 const userController = require("../controller/userController");
 const AuthController = require("../controller/AuthController");
-const userPhotoUploader = require("../middlewares/userImageHanddler");
+const photoUploadingFunctions = require("../middlewares/userImageHanddler");
 
 //REGULAR User Activity
 //protecting the activity
 Router.use(AuthController.protect);
 //1) updating his profiles!
 Router.route("/user/updateMe").patch(
-  userPhotoUploader,
+  photoUploadingFunctions.profilePhotoUploader,
+  photoUploadingFunctions.resizeUserPhoto,
   userController.updateMe
 );
 //2) Deleting himself
