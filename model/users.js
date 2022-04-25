@@ -28,6 +28,12 @@ const UserSchema = new mongoose.Schema({
     unique: [true, "this phone allready in use please provide other"],
   },
   course: { type: Array, default: null },
+  gender: {
+    enum: {
+      type: String,
+      values: ["male", "female"],
+    },
+  },
   password: {
     type: String,
     required: true,

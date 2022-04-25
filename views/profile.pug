@@ -6,10 +6,16 @@ block content
         .box
           h2 My Profile
         .img-name
-          img(src=`/img/users/${currentUser.photo}` alt='profile picture')
-          p.username
-            span.name= `${currentUser.firstname} ${currentUser.lastname}`
-            span.position= `${currentUser.role}`
+          if currentUser.photo
+            img(src=`/img/users/${currentUser.photo}` alt='profile picture')
+            p.username
+              span.name= `${currentUser.firstname} ${currentUser.lastname}`
+              span.position= `${currentUser.role}`
+          else 
+            img(src=`/img/default.png` alt='profile picture')
+            p.username
+              span.name= `${currentUser.firstname} ${currentUser.lastname}`
+              span.position= `${currentUser.role}`
         .info
           p.info-item
             svg(xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2')

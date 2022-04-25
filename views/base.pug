@@ -64,8 +64,12 @@ title Dashboard
             span Setting
     .profile
       a.me(href='/me')
-        img(src=`/img/users/${currentUser.photo}` alt)
-        p.name= `${currentUser.firstname} ${currentUser.lastname}`
+        if currentUser.photo
+          img(src=`/img/users/${currentUser.photo}` alt)
+          p.name= `${currentUser.firstname} ${currentUser.lastname}`
+        else
+          img(src=`/img/default.png` alt)
+          p.name= `${currentUser.firstname} ${currentUser.lastname}`
       p.role= `${currentUser.role}`
       a(href='/logout') Log Out
     .colors   

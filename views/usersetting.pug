@@ -6,8 +6,14 @@ block content
     .account_form
       form.profile_form(action='#' method='post')
         .profile-img
-          img(src= `/img/users/${currentUser.photo}` alt)
-          input#photo(type='file' name='photo' accept='image/*')
+          if currentUser.photo 
+            img(src= `/img/users/${currentUser.photo}` alt)
+            label(for="photo") Change
+            input#photo(type='file' name='photo' accept='image/*')
+          else
+            img(src= `/img/default.png` alt)
+            label(for="photo") Change
+            input#photo(type='file' name='photo' accept='image/*')
         .algo-input-div
           input#fname(name='firstname' type='text' placeholder= `${currentUser.firstname}`)
           label(for='fname') Firstname
@@ -32,12 +38,15 @@ block content
       form.password_form(action='#')
         #password.algo-input-div
           label(for='password') Current Password
-          input#password(name='currentpassword' type='password' placeholder= '*********')
+          input#passwordCurrent(name='passwordCurrent' type='password' placeholder= '*********')
         #password.algo-input-div
           label(for='password') New Password
-          input#password(name='newpassword' type='password' )
+          input#password(name='password' type='password' )
         .algo-input-div
           label(for='passwordConfirm') Password Confirm
-          input#passwordConfirm(name='passwordConform' type='password')
+          input#passwordConform(name='passwordConform' type='password')
         .submit-div
           input(type='submit' value='CHANGE PASSWORD')
+      .simple-line
+      p.warning Dear User if you Delete your Account, there is no way You can RECOVER!
+      a.danger-btn(href='') DELETE ACCOUNT

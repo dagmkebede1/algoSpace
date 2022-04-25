@@ -9,7 +9,6 @@ export const createSpace = async (
   secondp,
   link
 ) => {
-  console.log(course, firstp);
   try {
     const res = await axios({
       method: "POST",
@@ -37,22 +36,23 @@ export const createSpace = async (
   }
 };
 
-document.querySelector("form").addEventListener("submit", (e) => {
-  e.preventDefault();
-  const course = document.getElementById("course").value;
-  const firstp = document.getElementById("firstp").value;
-  const list1 = document.getElementById("list1").value;
-  const list2 = document.getElementById("list2").value;
-  const list3 = document.getElementById("list3").value;
-  const secondp = document.getElementById("secondp").value;
-  const link = document.getElementById("link").value;
-  createSpace(course, firstp, list1, list2, list3, secondp, link);
-});
-export const createSpaceFunction = () => {
-  const createSpaceBtn = document.getElementById("createSpaceBtn");
-  const createSpaceForm = document.querySelector(".createspace");
-  createSpaceBtn.addEventListener("click", () => {
-    createSpaceForm.style.display = "flex";
-    console.log("flexxxxxxxxxx");
-  });
-};
+// document.querySelector("form").addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   const course = document.getElementById("course").value;
+//   const firstp = document.getElementById("firstp").value;
+//   const list1 = document.getElementById("list1").value;
+//   const list2 = document.getElementById("list2").value;
+//   const list3 = document.getElementById("list3").value;
+//   const secondp = document.getElementById("secondp").value;
+//   const link = document.getElementById("link").value;
+//   createSpace(course, firstp, list1, list2, list3, secondp, link);
+// });
+
+// const createSpaceFunction = () => {
+//   const createSpaceBtn = document.getElementById("createSpaceBtn");
+//   const createSpaceForm = document.querySelector(".createspace");
+//   createSpaceBtn.addEventListener("click", () => {
+//     createSpaceForm.style.display = "flex";
+//     console.log("flexxxxxxxxxx");
+//   });
+// };

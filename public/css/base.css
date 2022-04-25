@@ -82,6 +82,14 @@ body.dark .main ol li {
 .alert-error {
   background-color: #eb4d4b;
 }
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
 .container-all {
   display: grid;
   grid-template-columns: 24rem 1fr;
@@ -96,7 +104,8 @@ body.dark .main ol li {
   justify-content: space-between;
   width: 24rem;
 
-  background-color: #f3f5f6;
+  /* background-color: #f3f5f6; */
+  background-color: #fff;
 }
 .container-all .side-bar .logo:link,
 .container-all .side-bar .logo:visited,

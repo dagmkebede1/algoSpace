@@ -9,7 +9,27 @@
 html {
   font-size: 62.5%;
 }
-
+.danger-btn:link,
+.danger-btn:visited {
+  background-color: #eb4d4b;
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 5rem;
+  text-decoration: none;
+  width: 15rem;
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 1rem auto;
+}
+.danger-btn:hover,
+.danger-btn:active {
+  background-color: #c72927;
+}
+.warning {
+  font-size: 1.2rem;
+  color: orange;
+  font-weight: 600;
+}
 .main-item_useraccount {
   position: relative;
   display: flex;
@@ -59,7 +79,7 @@ html {
   height: 10rem;
   border-radius: 50%;
 }
-.profile_form .profile-img input[type=file]::-webkit-file-upload-button {
+.profile_form .profile-img input[type="file"]::-webkit-file-upload-button {
   border: none;
   cursor: pointer;
   padding: 1rem;
@@ -71,7 +91,7 @@ html {
   font-size: 1.2rem;
   font-weight: 600;
 }
-.profile_form .profile-img input[type=file]::file-selector-button {
+.profile_form .profile-img input[type="file"]::file-selector-button {
   border: none;
   cursor: pointer;
   padding: 1rem;
@@ -82,15 +102,30 @@ html {
   font-size: 1.2rem;
   font-weight: 600;
 }
-.profile_form .profile-img input[type=file]::-webkit-file-upload-button:hover {
+.profile_form
+  .profile-img
+  input[type="file"]::-webkit-file-upload-button:hover {
   background-color: rgb(202, 202, 202);
   background-image: none;
 }
-.profile_form .profile-img input[type=file]::file-selector-button:hover {
+.profile_form .profile-img input[type="file"]::file-selector-button:hover {
   background-color: rgb(202, 202, 202);
   background-image: none;
+}
+.profile_form .profile-img label {
+  color: #1c7ed6;
+  font-size: 1.4rem;
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+  /* transition: all 3s; */
+}
+.profile_form .profile-img label:hover {
+  color: #42484e;
+  outline: 2px solid #1c7ed6;
+  border-radius: 5rem;
 }
 .profile_form .profile-img input {
+  display: none;
   position: absolute;
   left: 9.3rem;
   font-size: 1rem;
@@ -115,7 +150,8 @@ html {
   border-radius: 0.5rem;
   transition: all 0.3s;
 }
-.profile_form .algo-input-div input:focus, .profile_form .algo-input-div input:hover {
+.profile_form .algo-input-div input:focus,
+.profile_form .algo-input-div input:hover {
   font-size: 1.5rem;
   border: 1px solid rgb(46, 46, 46);
   outline: none;
@@ -144,7 +180,7 @@ html {
   display: flex;
   justify-content: flex-end;
 }
-.profile_form .submit-div input[type=submit] {
+.profile_form .submit-div input[type="submit"] {
   cursor: pointer;
   width: 14rem;
   padding: 0.8rem;
@@ -156,8 +192,8 @@ html {
   border-radius: 30rem;
   transition: all 0.8s;
 }
-.profile_form .submit-div input[type=submit]:hover,
-.profile_form .submit-div input[type=submit]:active {
+.profile_form .submit-div input[type="submit"]:hover,
+.profile_form .submit-div input[type="submit"]:active {
   background-color: #1665ab;
 }
 
@@ -201,7 +237,8 @@ p {
   border-radius: 0.5rem;
   transition: all 0.3s;
 }
-.password_form .algo-input-div input:focus, .password_form .algo-input-div input:hover {
+.password_form .algo-input-div input:focus,
+.password_form .algo-input-div input:hover {
   font-size: 1.5rem;
   border: 1px solid rgb(46, 46, 46);
   outline: none;
@@ -230,10 +267,10 @@ p {
   display: flex;
   justify-content: flex-end;
 }
-.password_form .submit-div input[type=submit] {
+.password_form .submit-div input[type="submit"] {
   cursor: pointer;
   width: 14rem;
-  padding: 0.8rem;
+  padding: 1rem 1.2rem;
   background-color: #1c7ed6;
   color: white;
   font-size: 1.2rem;
@@ -242,8 +279,8 @@ p {
   border-radius: 30rem;
   transition: all 0.8s;
 }
-.password_form .submit-div input[type=submit]:hover,
-.password_form .submit-div input[type=submit]:active {
+.password_form .submit-div input[type="submit"]:hover,
+.password_form .submit-div input[type="submit"]:active {
   background-color: #1665ab;
 }
 
@@ -265,7 +302,7 @@ p {
     display: flex;
     flex-direction: column;
   }
-  .main-item_useraccount .profile_form .profile-img input[type=file] {
+  .main-item_useraccount .profile_form .profile-img input[type="file"] {
     position: relative;
     transform: translateX(-30%);
   }
@@ -276,4 +313,4 @@ p {
   .main-item_useraccount .password_form {
     max-width: 70%;
   }
-}/*# sourceMappingURL=setting.css.map */
+} /*# sourceMappingURL=setting.css.map */
