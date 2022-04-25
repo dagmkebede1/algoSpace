@@ -36,14 +36,14 @@ block content
       .simple-line
       p PASSWORD CHANGE
       form.password_form(action='#')
-        #password.algo-input-div
-          label(for='password') Current Password
-          input#passwordCurrent(name='passwordCurrent' type='password' placeholder= '*********')
-        #password.algo-input-div
-          label(for='password') New Password
-          input#password(name='password' type='password' )
         .algo-input-div
-          label(for='passwordConfirm') Password Confirm
+          label(for='passwordCurrent') Current Password
+          input#passwordCurrent(name='passwordCurrent' type='password' placeholder= '*********')
+        .algo-input-div
+          label(for='userpassword') New Password
+          input#userpassword(name='password' type='password' )
+        .algo-input-div
+          label(for='passwordConform') Password Confirm
           input#passwordConform(name='passwordConform' type='password')
         .submit-div
           input(type='submit' value='CHANGE PASSWORD')

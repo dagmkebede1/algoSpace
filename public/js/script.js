@@ -1,6 +1,6 @@
 import { createSpace } from "./studyboard.js";
-import { updateSetting } from "./updatesetting.js";
-import { updatePassword } from "./updatesetting.js";
+import { updateSetting, updatePassword } from "./updatesetting.js";
+
 // import { showAlert } from "./alert.js";
 
 // import { createSpaceFunction } from "./studyboard.js";
@@ -87,20 +87,29 @@ if (userDataForm) {
 // CHANGING PASSWORD
 
 const userPasswordForm = document.querySelector(".password_form");
+
 if (userPasswordForm) {
   userPasswordForm.addEventListener("submit", (e) => {
+    console.log(userPasswordForm);
     e.preventDefault();
-    const form = new FormData();
-    form.append(
-      "passwordCurrent",
-      document.getElementById("passwordCurrent").value
-    );
-    form.append("password", document.getElementById("password").value);
-    form.append(
-      "passwordConform",
-      document.getElementById("passwordConform").value
-    );
+    // const formp = new FormData();
+    // formp.append(
+    //   "passwordCurrent",
+    //   document.getElementById("passwordCurrent").value
+    // );
+    // formp.append("password", document.getElementById("userpassword").value);
+    // formp.append(
+    //   "passwordConform",
+    //   document.getElementById("passwordConform").value
+    // );
+    // const formp = new FormData();
 
-    updatePassword(form, "data");
+    const passwordCurrent = document.getElementById("passwordCurrent").value;
+
+    const password = document.getElementById("userpassword").value;
+
+    const passwordConform = document.getElementById("passwordConform").value;
+
+    updatePassword(passwordCurrent, password, passwordConform);
   });
 }

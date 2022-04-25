@@ -17,12 +17,16 @@ export const updateSetting = async (data) => {
     showAlert("error", err.response.data.message);
   }
 };
-export const updatePassword = async (data) => {
+export const updatePassword = async (
+  passwordCurrent,
+  password,
+  passwordConform
+) => {
   try {
     const res = await axios({
       method: "PATCH",
       url: "http://localhost:3000/user/updatemypassword",
-      data,
+      data: { passwordCurrent, password, passwordConform },
     });
     if (res.data.status === "success") {
       showAlert("success", "Your Password is updated Successfully!");

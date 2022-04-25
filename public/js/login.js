@@ -12,7 +12,7 @@ const login = async (email, password) => {
       },
     });
     if (res.data.status === "success") {
-      showAlert("success", "logged on Successfully!");
+      showAlert("success", "logged in Successfully!");
       window.setTimeout(() => {
         location.assign("/home");
       }, 1500);
