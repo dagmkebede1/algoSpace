@@ -23,6 +23,7 @@ exports.createCourse = CatchAsync(async (req, res, next) => {
 
 exports.findAllCourse = CatchAsync(async (req, res, next) => {
   //basic QUery
+  const currentUser = req.user;
   const { title, numericFilter, sort, field } = req.query;
   // let QueryObj = { ...req.query };
   let QueryObj = {};
@@ -80,11 +81,12 @@ exports.findAllCourse = CatchAsync(async (req, res, next) => {
       data: `there is no Course in the system`,
     });
   } else {
-    res.status(200).json({
-      message: "success",
-      data: { allCourse },
-      total: allCourse.length,
-    });
+    // res.status(200).json({
+    //   message: "success",
+    //   data: { allCourse },
+    //   total: allCourse.length,
+    // });
+    res.status(200).render("course", { allCourse, currentUser });
   }
 });
 
