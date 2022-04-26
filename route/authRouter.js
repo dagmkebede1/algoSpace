@@ -1,8 +1,13 @@
 const express = require("express");
 const Router = express.Router();
+const photoUploadingFunctions = require("../middlewares/userImageHanddler");
 const AuthController = require("../controller/AuthController");
 
-Router.route("/signup").post(AuthController.signup);
+Router.route("/signup").post(
+  photoUploadingFunctions.profilePhotoUploader,
+  photoUploadingFunctions.resizeUserPhoto,
+  AuthController.signup
+);
 Router.route("/login").post(AuthController.login);
 Router.route("/logout").get(AuthController.logout);
 Router.route("/user/forgotPassword").post(AuthController.forgotPassword);

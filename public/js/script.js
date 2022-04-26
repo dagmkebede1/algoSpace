@@ -1,6 +1,6 @@
 import { createSpace } from "./studyboard.js";
 import { updateSetting, updatePassword } from "./updatesetting.js";
-
+import { deleteMe } from "./deleteMe.js";
 // import { showAlert } from "./alert.js";
 
 // import { createSpaceFunction } from "./studyboard.js";
@@ -111,5 +111,13 @@ if (userPasswordForm) {
     const passwordConform = document.getElementById("passwordConform").value;
 
     updatePassword(passwordCurrent, password, passwordConform);
+  });
+}
+
+const DelateMeBtn = document.querySelector(".danger-btn");
+if (DelateMeBtn) {
+  DelateMeBtn.addEventListener("click", () => {
+    const url = "/user/deleteMe";
+    deleteMe(url);
   });
 }

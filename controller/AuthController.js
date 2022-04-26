@@ -16,13 +16,14 @@ const signToken = (id) => {
 
 exports.signup = CatchAsync(async (req, res, next) => {
   const savedUser = await User.create({
+    photo: req.body.photo,
     firstname: req.body.firstname,
     lastname: req.body.lastname,
     email: req.body.email,
+    phone: req.body.photo,
     gender: req.body.gender,
     password: req.body.password,
     passwordConform: req.body.passwordConform,
-    //phote: req.body.file
   });
 
   const token = signToken(savedUser._id);

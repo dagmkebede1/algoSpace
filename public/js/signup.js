@@ -1,26 +1,11 @@
 import { showAlert } from "./alert.js";
 
-const signUp = async (
-  firstname,
-  lastname,
-  email,
-  gender,
-  password,
-  passwordConform
-) => {
-  console.log(firstname, lastname);
+const signUp = async (data) => {
   try {
     const res = await axios({
       method: "POST",
       url: "http://localhost:3000/signup",
-      data: {
-        firstname,
-        lastname,
-        email,
-        gender,
-        password,
-        passwordConform,
-      },
+      data,
     });
     if (res.data.status === "success") {
       showAlert("success", "Signed up Successfully!");
@@ -33,14 +18,22 @@ const signUp = async (
     console.log(err.response.data.message);
   }
 };
-const signUpBtn = document.getElementById("signup");
-signUpBtn.addEventListener("click", (e) => {
+const signUpForm = document.querySelector("form");
+
+signUpForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const firstname = document.getElementById("fname").value;
-  const lastname = document.getElementById("lname").value;
-  const email = document.getElementById("email").value;
-  const gender = document.getElementById("gender").value;
-  const password = document.getElementById("password").value;
-  const passwordConform = document.getElementById("passwordConform").value;
-  signUp(firstname, lastname, email, gender, password, passwordConform);
+  const form = new FormData();
+  form.append("firstname", document.getElementById("fname").value);
+  form.append("lastname", document.getElementById("lname").value);
+  form.append("email", document.getElementById("email").value);
+  form.append("phone", document.getElementById("phone").value);
+  form.append("gender", document.getElementById("gender").value);
+  form.append("password", document.getElementById("password").value);
+  form.append(
+    "passwordConform",
+    document.getElementById("passwordConform").value
+  );
+  form.append("photo", document.getElementById("photo").files[0]);
+
+  signUp(form, "data");
 });

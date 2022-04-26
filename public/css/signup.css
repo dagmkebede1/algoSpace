@@ -190,6 +190,28 @@
   font-size: 0.9rem;
   outline: none;
 }
+.sign-up-box form .input-box .phone {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.sign-up-box form .input-box .phone input {
+  text-align: center;
+}
+
+.sign-up-box form .input-box .phone input:focus {
+  font-size: 0.9rem;
+  outline: none;
+}
 
 .sign-up-box form .input-box .email {
   display: -webkit-box;
@@ -303,7 +325,7 @@
   outline: none;
 }
 
-.sign-up-box form button {
+.sign-up-box form .submit {
   cursor: pointer;
   border: none;
   border-radius: 3px;
@@ -313,7 +335,7 @@
   background-color: #1c7ed6;
 }
 
-.sign-up-box form button:hover {
+.sign-up-box form .submit:hover {
   background-color: #1971c1;
 }
 
