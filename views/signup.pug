@@ -27,9 +27,10 @@ title Sign Up
           input#phone(name='phone' type='text')
         .gender
           label(for='gender') Gender
-          select#gender(name='gender')
-            option(value='male') Male
-            option(value='female') Female
+          select#gender(name='gender' required)
+            option(value="" disabled selected ) Choose
+            option(value='Male') Male
+            option(value='Female') Female
         .password
           label(for='password') Password
           input#password(name='password' type='password')

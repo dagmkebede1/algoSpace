@@ -29,9 +29,10 @@ const UserSchema = new mongoose.Schema({
   },
   course: { type: Array, default: null },
   gender: {
+    type: String,
     enum: {
-      type: String,
-      values: ["male", "female"],
+      values: ["Male", "Female"],
+      message: "{VALUE} is not supported",
     },
   },
   password: {

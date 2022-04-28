@@ -4,18 +4,21 @@ append css
 block content
     .user-course
         h2 Your Current Courses
-        if currentUser.course
-            each course in currentUser.course 
-                p= `${course.course}`
-        else 
-            p You don't have any Course yet!
+            for item in currentUser.course 
+                p.list=` ${item}`
+            else 
+                p.no-course You don't have any Course yet!
+            
+             
     .available-div
-        h2 Available Course
+        h2 Available Courses
     .card-container
         each course in allCourse
             .card
                 .card-side.front
                     .img
+                        .bg-blend
+                        img(src="/img/web.jpg", alt="")
                     p.title= `${course.title}`
                     .course-about
                         p Takes 3 Months
@@ -34,3 +37,6 @@ block content
                         span ETB
                     a.enrol(href='#') Enrol Now !
                     a.beinst(href='#') Be Instructor
+        a.main-btn.center.add-card(href="") 
+            svg.plus(xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2')
+                path(stroke-linecap='round' stroke-linejoin='round' d='M12 4v16m8-8H4')

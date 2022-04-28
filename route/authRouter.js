@@ -5,7 +5,7 @@ const AuthController = require("../controller/AuthController");
 
 Router.route("/signup").post(
   photoUploadingFunctions.profilePhotoUploader,
-  photoUploadingFunctions.resizeUserPhoto,
+  photoUploadingFunctions.resizeUserPhotoSignup,
   AuthController.signup
 );
 Router.route("/login").post(AuthController.login);

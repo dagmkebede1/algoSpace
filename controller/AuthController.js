@@ -15,16 +15,20 @@ const signToken = (id) => {
 };
 
 exports.signup = CatchAsync(async (req, res, next) => {
-  const savedUser = await User.create({
-    photo: req.body.photo,
+  const theBody = {
     firstname: req.body.firstname,
     lastname: req.body.lastname,
     email: req.body.email,
-    phone: req.body.photo,
+    phone: req.body.phone,
     gender: req.body.gender,
     password: req.body.password,
     passwordConform: req.body.passwordConform,
-  });
+  };
+  if (req.file) {
+    theBody.photo = req.file.filename;
+  }
+
+  const savedUser = await User.create(theBody);
 
   const token = signToken(savedUser._id);
   const cookieOptions = {

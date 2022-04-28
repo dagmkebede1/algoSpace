@@ -29,9 +29,10 @@ block content
           input#phone(name='phone' type='text' placeholder= `${currentUser.phone}`)
           label(for='phone') Phone Number
         .algo-input-div
-          select#gender(name='gender' placeholder= `${currentUser.gender}`)
-            option(value='male') Male
-            option(value='female') Female
+          select#gender(name='gender')
+            option(value="" disabled selected )= `${currentUser.gender}`
+            option(value='Male') Male
+            option(value='Female') Female
           label(for='gender') Gender
         .submit-div
           input(type='submit' value='UPDATE SETTINGS')

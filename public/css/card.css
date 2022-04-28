@@ -14,11 +14,24 @@ html {
   align-items: center;
   color: rgb(61, 60, 60);
 }
+body.dark .user-course {
+  color: inherit;
+}
 .user-course h2 {
   font-size: 2rem;
 }
 .user-course p {
+  padding: 1rem;
   font-size: 1.6rem;
+}
+.no-course{
+  color: orange;
+}
+.list{
+  color: #5643fa;
+}
+body.dark .user-course p{
+  color: inherit;
 }
 
 .available-div {
@@ -31,7 +44,9 @@ html {
   margin-top: 3rem;
   font-size: 1.8rem;
 }
-
+body.dark .available-div {
+  color: inherit;
+}
 .card-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
@@ -60,24 +75,45 @@ html {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   box-shadow: 0 0 1rem 0 grey;
-  border-radius: 0.3rem;
+  border-radius: 1rem;
   overflow: hidden;
 }
 .card .front {
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 1rem;
+  /* justify-content: space-between; */
   background-color: rgb(255, 255, 255);
   transition: all 0.8s;
 }
+body.dark .card .front {
+  background-color: inherit;
+}
 .card .front .img {
-  position: relative;
   width: 100%;
   height: 10rem;
+  /* background-size: contain; */
+  /* background-blend-mode: overlay; */
+}
+/* .card .front .bg-blend {
+  width: 100%;
+  height: 10rem;
+  position: fixed;
+  z-index: 9999;
+  background-image: linear-gradient(
+    to right bottom,
+    hsla(209, 100%, 58%, 0.507),
+    hsla(246, 95%, 62%, 0.507)
+    );
+    background-blend-mode: overlay; 
+} */
+.card .front .img img {
+  position: relative;
+  width: 100%;
+  height: 100%;
   background-size: contain;
-  background-blend-mode: overlay;
-  background-image: linear-gradient(to right bottom, #2998ff, #5643fa),
-    url(../img/web.jpg);
+  background-image: linear-gradient(to right bottom, #2998ff, #5643fa); */
 }
 .card .front .title {
   text-align: center;
@@ -85,17 +121,23 @@ html {
   color: rgb(100, 100, 100);
   font-weight: 600;
 }
+/* body.dark .card .front .title {
+  color: grey !important;
+} */
 .card .front .course-about p {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   font-size: 1rem;
-  /* color: grey; */
-  color: black;
+  color: grey;
+  /* color: black; */
   text-align: center;
-  padding: 0 0.2rem;
+  padding: 0.5rem 0.2rem;
   line-height: 1.2rem;
 }
+/* body.dark .card .front .course-about p {
+  color: grey !important;
+} */
 .card .front .course-about .line {
   width: 50%;
   margin: 0 auto;
@@ -143,7 +185,7 @@ html {
 }
 .card .back .enrol:link,
 .card .back .enrol:visited {
-  color: #2998ff;
+  color: #0258a8;
   font-size: 1.4rem;
   text-decoration: none;
   padding: 0.7rem 1.4rem;
@@ -151,11 +193,17 @@ html {
   border-radius: 10rem;
   transition: all 0.1s ease;
 }
-.card .back .enrol:link:hover,
-.card .back .enrol:link:active,
+body.dark .card .back .enrol:link,
+body.dark .card .back .enrol:visited {
+  color: #0258a8 !important;
+}
 .card .back .enrol:visited:hover,
 .card .back .enrol:visited:active {
   color: rgb(83, 83, 83);
+}
+body.dark .card .back .enrol:visited:hover,
+body.dark .card .back .enrol:visited:active {
+  color: rgb(83, 83, 83) !important;
 }
 .card .back .beinst:link,
 .card .back .beinst:visited {
@@ -180,3 +228,38 @@ html {
   transform: rotateY(0deg);
   transition: all 0.8s;
 } /*# sourceMappingURL=card.css.map */
+
+.main-btn:link,
+.main-btn:visited{
+  text-decoration: none;
+  font-size: 1.6rem;
+  color: white;
+  padding: 1rem 0;
+  /* background-color: #1c7ed6; */
+  background-image: linear-gradient(to right bottom, #2998ff, #5643fa);
+  border-radius: 1rem;
+  transition: all 0.3s;
+  text-align: center;
+}
+.main-btn:hover,
+.main-btn:active{
+  background-color: #1665ab;
+}
+.add-card{
+  width: 15rem;
+  height: 25rem;
+  transition: all .4s;
+}
+.add-card:hover svg{
+ stroke: rgb(160, 243, 160);
+}
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.plus{
+  width: 10rem;
+  height: 10rem;
+  stroke: white;
+}

@@ -71,7 +71,7 @@ exports.findAllCourse = CatchAsync(async (req, res, next) => {
   }
 
   // const query = Course.find(QueryObj);
-  console.log(QueryObj);
+  // console.log(QueryObj);
 
   const allCourse = await result;
   // const allCourse = await Course.find(QueryObj);

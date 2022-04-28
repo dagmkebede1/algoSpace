@@ -10,7 +10,7 @@ Router.use(AuthController.protect);
 //1) updating his profiles!
 Router.route("/user/updateMe").patch(
   photoUploadingFunctions.profilePhotoUploader,
-  photoUploadingFunctions.resizeUserPhoto,
+  photoUploadingFunctions.resizeUserPhotoUpdate,
   userController.updateMe
 );
 //2) Deleting himself
