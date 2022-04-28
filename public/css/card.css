@@ -124,6 +124,10 @@ body.dark .card .front {
 /* body.dark .card .front .title {
   color: grey !important;
 } */
+
+.card .front .mobile-part{
+  display: none;
+}
 .card .front .course-about p {
   display: flex;
   flex-direction: column;
@@ -262,4 +266,16 @@ body.dark .card .back .enrol:visited:active {
   width: 10rem;
   height: 10rem;
   stroke: white;
+}
+
+@media screen and (max-width: 800px) {
+  .card .front .course-about{
+    display: none;
+  }
+.card .front .mobile-part{
+  display: block;
+}
+.back{
+  display: none;
+} 
 }

@@ -50,6 +50,8 @@ body {
   justify-content: center;
   height: 10rem;
   width: 100%;
+  border-top-left-radius: 4rem;
+  border-top-right-radius: 4rem;
   background-color: #e9ebeb;
 }
 .main .main-container .main-item-profile .box h2 {
@@ -110,6 +112,9 @@ body {
   width: 2.2rem;
   height: 2.2rem;
   stroke: #292a2c;
+}
+body.dark .main .main-container .main-item-profile .info-item svg {
+  stroke: #e9ebeb !important;
 }
 .main .main-container .main-item-profile .info .info-item svg {
   width: 2.2rem;
