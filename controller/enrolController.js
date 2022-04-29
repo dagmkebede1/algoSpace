@@ -20,7 +20,7 @@ exports.createEnrol = CatchAsync(async (req, res, next) => {
   // console.log(changing);
   res.status(200).json({
     massage: "success",
-    data: { savedEnrol },
+    data: { populated },
   });
 });
 

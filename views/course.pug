@@ -31,7 +31,7 @@ block content
                         p.birr
                             | 1000 
                             span ETB
-                        a.enrol(href='#') Enrol Now !
+                        a.enrol(href= `/${course._id}`) Enrol Now !
                         a.beinst(href='#') Be Instructor 
 
                     .instructor
@@ -43,7 +43,7 @@ block content
                     p.birr
                         | 1000 
                         span ETB
-                    a.enrol(href='#') Enrol Now !
+                    a.enrol(href= `/course/${course._id}`) Enrol Now !
                     a.beinst(href='#') Be Instructor
         if currentUser.role === 'admin'
             a.main-btn.center.add-card(href="") 

@@ -90,11 +90,19 @@ exports.findAllCourse = CatchAsync(async (req, res, next) => {
   }
 });
 
-exports.findCourse = factory.findOne(Course, {
-  path: "instructor",
-  select: "firstname lastname",
+// exports.findCourse = factory.findOne(Course, {
+//   path: "instructor",
+//   select: "firstname lastname",
+// });
+exports.findCourse = CatchAsync(async (req, res, next) => {
+  const currentUser = req.user;
+  const id = req.params.id;
+  const singleCourse = await Course.findById({ _id: id }).populate({
+    path: "instructor",
+    select: "firstname lastname",
+  });
+  res.status(200).render("enrol", { currentUser: currentUser, singleCourse });
 });
-
 exports.updateCourse = factory.updateOne(Course);
 
 exports.deleteCourse = factory.deleteOne(Course);
