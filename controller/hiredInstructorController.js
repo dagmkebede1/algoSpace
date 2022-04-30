@@ -7,6 +7,7 @@ const { path } = require("express/lib/application");
 exports.beHired = CatchAsync(async (req, res, next) => {
   if (!req.body.instructor) req.body.instructor = req.user.id;
   if (!req.body.course) req.body.course = req.params.id;
+
   const newHired = new HiredInstructor(req.body);
 
   const savedInstuctor = await newHired.save();

@@ -4,15 +4,15 @@ append css
 block content 
     .hire-container
         section.header
-            img(src='web.jpg' alt)
+            img(src='/img/web.jpg' alt)
             .header-text
-                h2 BASIC COMPUTER SKILL
-                p Application for Instructors
+                h2= `${singleCourse.title}`
+                p We are Hiring...
         section.about
             p.overview Overview
             p
-                span Basic Computer Skill
-            | Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit laboriosam assumenda distinctio libero placeat rem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae deserunt amet, quibusdam sapiente nam tempora placeat illum quo saepe debitis, impedit reiciendis, harum laborum minima.
+                
+                = `${singleCourse.description}` 
 
         section.objective
             p.experty Expertise Needed
@@ -20,24 +20,27 @@ block content
                 p
                     svg.w-6.h-6(fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg')
                         path(stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 5l7 7-7 7')
-                | Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, assumenda.
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, assumenda.
 
                 p
                     svg.w-6.h-6(fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg')
                         path(stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 5l7 7-7 7')
-                | Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, assumenda.
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, assumenda.
 
                 p
                     svg.w-6.h-6(fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg')
                     path(stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 5l7 7-7 7')
-                | Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, assumenda.
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, assumenda.
 
                 p
                     svg.w-6.h-6(fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg')
                         path(stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 5l7 7-7 7')
-                | Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, assumenda.
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, assumenda.
 
         form.motive-form(action)
+            label(for="") Application Form 
             label(for='motive') Motivation and Experiance
             textarea#motive(name='motive' cols='30' rows='10')
+            label(for="cv") Upload CV 
+            input(type="file") 
             input.apply-btn(type='submit' value='Apply')

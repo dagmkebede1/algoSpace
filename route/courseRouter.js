@@ -5,7 +5,7 @@ const AuthController = require("../controller/AuthController");
 
 //COURSE ROUTE
 Router.route("/course")
-  .get(courseController.findAllCourse)
+  .get(AuthController.protect, courseController.findAllCourse)
   .post(
     AuthController.protect,
     AuthController.restrictTo("admin"),
@@ -23,5 +23,8 @@ Router.route("/course/:id")
     AuthController.restrictTo("admin"),
     courseController.deleteCourse
   );
-
+Router.route("/course-inst/:id").get(
+  AuthController.protect,
+  courseController.courseToBeApplied
+);
 module.exports = Router;

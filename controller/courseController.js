@@ -103,6 +103,13 @@ exports.findCourse = CatchAsync(async (req, res, next) => {
   });
   res.status(200).render("enrol", { currentUser: currentUser, singleCourse });
 });
+
+exports.courseToBeApplied = CatchAsync(async (req, res, next) => {
+  const currentUser = req.user;
+  const id = req.params.id;
+  const singleCourse = await Course.findById({ _id: id });
+  res.status(200).render("hire", { currentUser, singleCourse });
+});
 exports.updateCourse = factory.updateOne(Course);
 
 exports.deleteCourse = factory.deleteOne(Course);

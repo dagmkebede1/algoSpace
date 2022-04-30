@@ -11,6 +11,14 @@ const hireSchema = new mongoose.Schema(
       type: mongoose.Schema.ObjectId,
       ref: "Course",
     },
+    motive: {
+      type: String,
+      required: [true, "Please provide your Motivation letter"],
+    },
+    cv: {
+      type: String,
+      required: [true, "Please Attach us your Resume/CV"],
+    },
   },
   { timestamps: true }
 );

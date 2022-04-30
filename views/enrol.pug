@@ -10,9 +10,7 @@ block content
                 a.apply(href) Enrol Now 
         section.about
             p.overview Overview
-            p
-                span Basic Computer Skill
-                | Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit laboriosam assumenda distinctio libero placeat rem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae deserunt amet, quibusdam sapiente nam tempora placeat illum quo saepe debitis, impedit reiciendis, harum laborum minima.
+            p= `${singleCourse.description}`
 
         section.packages
             .package-item
@@ -20,7 +18,7 @@ block content
                     path(stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z')
                 h2 Price
                 p
-                    | 1000 
+                    = `${singleCourse.price} ` 
                     span ETB / Month
             .package-item
                 svg.w-6.h-6(fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg')
@@ -34,8 +32,9 @@ block content
                     path(stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M8 13v-1m4 1v-3m4 3V8M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z')
                 h2 Instructor
                 p
-                    | Mr. 
-                    span Samson Meseret
+                    each inst in singleCourse.instructor
+                        | Mr. 
+                        span= `${inst.firstname} ${inst.lastname}`
             .package-item
                 svg.w-6.h-6(fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg')
                     path(stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5.636 18.364a9 9 0 010-12.728m12.728 0a9 9 0 010 12.728m-9.9-2.829a5 5 0 010-7.07m7.072 0a5 5 0 010 7.07M13 12a1 1 0 11-2 0 1 1 0 012 0z')
