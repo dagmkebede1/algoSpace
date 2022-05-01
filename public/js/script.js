@@ -1,6 +1,8 @@
 import { createSpace } from "./studyboard.js";
 import { updateSetting, updatePassword } from "./updatesetting.js";
 import { deleteMe } from "./deleteMe.js";
+import { deleteCourse } from "./courseJS.js";
+
 // import { showAlert } from "./alert.js";
 
 // import { createSpaceFunction } from "./studyboard.js";
@@ -119,5 +121,15 @@ if (DelateMeBtn) {
   DelateMeBtn.addEventListener("click", () => {
     const url = "/user/deleteMe";
     deleteMe(url);
+  });
+}
+
+const deleteCourseBtn = document.getElementById("deleteCourse");
+// const editCourseBtn = document.getElementById("editCourse");
+
+if (deleteCourseBtn) {
+  deleteCourseBtn.addEventListener("click", () => {
+    const deleteUrl = deleteCourseBtn.href;
+    deleteCourse(deleteUrl);
   });
 }
