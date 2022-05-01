@@ -1,5 +1,4 @@
-import "./sweetalert2.all.js";
-import { showAlert } from "./alert.js";
+// import { showAlert } from "./alert.js";
 
 export const deleteCourse = (deleteUrl) => {
   Swal.fire({
@@ -14,11 +13,22 @@ export const deleteCourse = (deleteUrl) => {
     if (result.isConfirmed) {
       // SENDING DELETE REQUEST
 
-      Swal.fire("Deleted!", "Your file has been deleted.", "success");
-      //   axios({
-      //     method: "DELETE",
-      //     url: deleteUrl,
-      //   });
+      axios({
+        method: "DELETE",
+        url: deleteUrl,
+      })
+        .then(function (res) {
+          console.log(res.data.status);
+          if (res.data.status === "success") {
+            Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            window.setTimeout(() => {
+              location.assign("/course");
+            }, 1500);
+          }
+        })
+        .catch(function (err) {
+          console.log(err);
+        });
     }
   });
 };

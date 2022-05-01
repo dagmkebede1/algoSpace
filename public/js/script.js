@@ -124,12 +124,17 @@ if (DelateMeBtn) {
   });
 }
 
-const deleteCourseBtn = document.getElementById("deleteCourse");
+const deleteCourseBtn = document.querySelectorAll(".deleteCourse");
 // const editCourseBtn = document.getElementById("editCourse");
 
 if (deleteCourseBtn) {
-  deleteCourseBtn.addEventListener("click", () => {
-    const deleteUrl = deleteCourseBtn.href;
-    deleteCourse(deleteUrl);
+  deleteCourseBtn.forEach((e) => {
+    e.addEventListener("click", (a) => {
+      a.preventDefault();
+      const deleteUrl = e.href;
+
+      deleteCourse(deleteUrl);
+      console.log(deleteUrl);
+    });
   });
 }
