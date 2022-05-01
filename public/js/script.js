@@ -118,7 +118,8 @@ if (userPasswordForm) {
 
 const DelateMeBtn = document.querySelector(".danger-btn");
 if (DelateMeBtn) {
-  DelateMeBtn.addEventListener("click", () => {
+  DelateMeBtn.addEventListener("click", (e) => {
+    e.preventDefault();
     const url = "/user/deleteMe";
     deleteMe(url);
   });
