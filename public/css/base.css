@@ -97,8 +97,8 @@ body.dark .main ol li {
   justify-content: space-between;
   width: 24rem;
 
-  /* background-color: #f3f5f6; */
-  background-color: #fff;
+  background-color: #f3f5f6;
+  /* background-color: #fff; */
 }
 .container-all .side-bar .logo:link,
 .container-all .side-bar .logo:visited,
