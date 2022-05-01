@@ -1,0 +1,48 @@
+extends base
+append css
+  link(rel='stylesheet' href='/css/createCourse.css')
+block content 
+  .course-form-container
+    h2 Course Create Form
+    if course 
+      form(action)
+        .photo-cont
+          label.file-label(for='photo')
+            svg.h-6.w-6(xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2')
+              path(stroke-linecap='round' stroke-linejoin='round' d='M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12')
+          input.photo#photo(name='photo' type='file')
+        .title-cont
+          label(for='title') Title
+          input.algo-input#title(name='title' placeholder= `${course.title}` type='text')
+        .price-cont
+          label(for='price') Price
+          input.algo-input#price(name='price' placeholder= `${course.price}` type='number')
+        .desc-cont
+          label(for='description') Description
+          textarea.algo-input#description(name='description' placeholder= `${course.description}` cols='30' rows='10')
+        .inst-cont
+          label(for='instructor') Course Instructor
+          input.algo-input#instructor(name='instructor' type='text')
+        .submit-cont
+          input.submit(type='submit' value='CREATE')
+    else 
+      form(action)
+        .photo-cont
+          label.file-label(for='photo')
+            svg.h-6.w-6(xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2')
+              path(stroke-linecap='round' stroke-linejoin='round' d='M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12')
+          input.photo#photo(name='photo' type='file')
+        .title-cont
+          label(for='title') Title
+          input.algo-input#title(name='title' type='text')
+        .price-cont
+          label(for='price') Price
+          input.algo-input#price(name='price' type='number')
+        .desc-cont
+          label(for='description') Description
+          textarea.algo-input#description(name='description' cols='30' rows='10')
+        .inst-cont
+          label(for='instructor') Course Instructor
+          input.algo-input#instructor(name='instructor' type='text')
+        .submit-cont
+          input.submit(type='submit' value='CREATE')
