@@ -17,6 +17,7 @@ Router.route("/course/:id")
   .patch(
     AuthController.protect,
     AuthController.restrictTo("admin"),
+    coursePhotoUploader.coursePhotoUploader,
     courseController.updateCourse
   )
   .delete(
@@ -24,6 +25,9 @@ Router.route("/course/:id")
     AuthController.restrictTo("admin"),
     courseController.deleteCourse
   );
+
+// --- RENDERING PAGES ------------------/////////////////
+
 Router.route("/course-inst/:id").get(
   AuthController.protect,
   courseController.courseToBeApplied

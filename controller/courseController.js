@@ -15,15 +15,31 @@ exports.createCourse = CatchAsync(async (req, res, next) => {
     theBodyData.photo = req.file.filename;
   }
 
-  // const savedUser = await User.create(theBody);
-  // const newCourse = new Course(theBodyData);
-
   const savedCourse = await Course.create(theBodyData);
   res.status(200).json({
     status: "success",
     data: { savedCourse },
   });
 });
+exports.updateCourse = CatchAsync(async (req, res, next) => {
+  let theBodyData = {};
+
+  if (req.body.title) theBodyData.title = req.body.title;
+  if (req.body.description) theBodyData.description = req.body.description;
+  if (req.body.price) theBodyData.price = req.body.price;
+  if (req.body.instructor) theBodyData.instructor = req.body.instructor;
+  if (req.file) {
+    theBodyData.photo = req.file.filename;
+  }
+  const id = req.params.id;
+  const editedCourse = await Course.findByIdAndUpdate({ _id: id }, theBodyData);
+
+  res.status(200).json({
+    status: "success",
+    data: editedCourse,
+  });
+});
+
 // exports.updateMe = CatchAsync(async (req, res, next) => {
 //   //1) Create error if user POSTs password data
 //   if (req.body.password || req.body.passwordConform) {
@@ -179,6 +195,5 @@ exports.addCoursePage = CatchAsync(async (req, res) => {
   const currentUser = req.user;
   res.status(200).render("courseAction", { currentUser });
 });
-exports.updateCourse = factory.updateOne(Course);
 
 exports.deleteCourse = factory.deleteOne(Course);

@@ -4,7 +4,7 @@ append css
 block content 
     .hire-container
         section.header
-            img(src='/img/web.jpg' alt)
+            img(src= `/img/course/${singleCourse.photo}` alt)
             .header-text
                 h2= `${singleCourse.title}`
                 p We are Hiring...

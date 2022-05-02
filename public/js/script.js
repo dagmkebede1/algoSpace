@@ -1,7 +1,7 @@
 import { createSpace } from "./studyboard.js";
 import { updateSetting, updatePassword } from "./updatesetting.js";
 import { deleteMe } from "./deleteMe.js";
-import { deleteCourse, createCourse } from "./courseAction.js";
+import { deleteCourse, createCourse, editCourse } from "./courseAction.js";
 
 // import { showAlert } from "./alert.js";
 
@@ -143,6 +143,7 @@ if (courseCreateForm) {
   });
 }
 // -- EDIT
+const editCourseBtn = document.getElementById("a-href").href;
 const courseEditForm = document.querySelector(".course-edit-form");
 if (courseEditForm) {
   courseEditForm.addEventListener("submit", (e) => {
@@ -151,7 +152,9 @@ if (courseEditForm) {
     form.append("title", document.getElementById("title").value);
     form.append("price", document.getElementById("price").value);
     form.append("description", document.getElementById("description").value);
-    form.append("instructor", document.getElementById("instructor").value);
+    // form.append("instructor", document.getElementById("instructor").value);
     form.append("photo", document.getElementById("photo").files[0]);
+    const url = editCourseBtn;
+    editCourse(form, url);
   });
 }

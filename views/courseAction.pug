@@ -24,7 +24,8 @@ block content
           label(for='instructor') Course Instructor
           input.algo-input#instructor(name='instructor' type='text')
         .submit-cont
-          input.submit(type='submit' value='CREATE')
+          input.submit(type='submit' value='EDIT')
+          a#a-href(href= `/course/${course._id}`) 
     else 
       form.course-add-form(action)
         .photo-cont
