@@ -1,7 +1,7 @@
 import { createSpace } from "./studyboard.js";
 import { updateSetting, updatePassword } from "./updatesetting.js";
 import { deleteMe } from "./deleteMe.js";
-import { deleteCourse } from "./courseJS.js";
+import { deleteCourse, createCourse } from "./courseAction";
 
 // import { showAlert } from "./alert.js";
 
@@ -94,17 +94,6 @@ if (userPasswordForm) {
   userPasswordForm.addEventListener("submit", (e) => {
     console.log(userPasswordForm);
     e.preventDefault();
-    // const formp = new FormData();
-    // formp.append(
-    //   "passwordCurrent",
-    //   document.getElementById("passwordCurrent").value
-    // );
-    // formp.append("password", document.getElementById("userpassword").value);
-    // formp.append(
-    //   "passwordConform",
-    //   document.getElementById("passwordConform").value
-    // );
-    // const formp = new FormData();
 
     const passwordCurrent = document.getElementById("passwordCurrent").value;
 
@@ -125,9 +114,9 @@ if (DelateMeBtn) {
   });
 }
 
+//------------COURSE ACTIONS-------------//////
+// ---DELETE COURSE
 const deleteCourseBtn = document.querySelectorAll(".deleteCourse");
-// const editCourseBtn = document.getElementById("editCourse");
-
 if (deleteCourseBtn) {
   deleteCourseBtn.forEach((e) => {
     e.addEventListener("click", (a) => {
@@ -137,5 +126,32 @@ if (deleteCourseBtn) {
       deleteCourse(deleteUrl);
       console.log(deleteUrl);
     });
+  });
+}
+// -- CREATE
+const courseCreateForm = document.querySelector(".course-add-form");
+if (courseCreateForm) {
+  courseCreateForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const form = new FormData();
+    form.append("title", document.getElementById("title").value);
+    form.append("price", document.getElementById("price").value);
+    form.append("description", document.getElementById("description").value);
+    form.append("instructor", document.getElementById("instructor").value);
+    form.append("photo", document.getElementById("photo").files[0]);
+    createCourse(form, "data");
+  });
+}
+// -- EDIT
+const courseEditForm = document.querySelector(".course-edit-form");
+if (courseEditForm) {
+  courseEditForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const form = new FormData();
+    form.append("title", document.getElementById("title").value);
+    form.append("price", document.getElementById("price").value);
+    form.append("description", document.getElementById("description").value);
+    form.append("instructor", document.getElementById("instructor").value);
+    form.append("photo", document.getElementById("photo").files[0]);
   });
 }
