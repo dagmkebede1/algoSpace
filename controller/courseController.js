@@ -5,22 +5,79 @@ const CatchAsync = require("../utils/CatchAsync");
 const factory = require("./factoryController");
 
 exports.createCourse = CatchAsync(async (req, res, next) => {
-  const newCourse = new Course({
+  const theBodyData = {
     title: req.body.title,
     description: req.body.description,
     price: req.body.price,
     instructor: req.body.instructor,
+  };
+  if (req.file) {
+    theBodyData.photo = req.file.filename;
+  }
 
-    //photo: file.path
-  });
+  // const savedUser = await User.create(theBody);
+  // const newCourse = new Course(theBodyData);
 
-  const savedCourse = await newCourse.save();
+  const savedCourse = await Course.create(theBodyData);
   res.status(200).json({
-    massage: "success",
+    status: "success",
     data: { savedCourse },
   });
 });
+// exports.updateMe = CatchAsync(async (req, res, next) => {
+//   //1) Create error if user POSTs password data
+//   if (req.body.password || req.body.passwordConform) {
+//     return next(
+//       new AppError(
+//         "This route is for password update. Please use /updatePassword.",
+//         400
+//       )
+//     );
+//   }
+//   //2) Filtered Out unwanted fields
+//   const filteredBody = filterObj(
+//     req.body,
+//     "firstname",
+//     "lastname",
+//     "email",
+//     "gender",
+//     "phone"
+//   );
+//   if (req.file) filteredBody.photo = req.file.filename;
+//   let thingsToBeUpdated = {};
 
+//   if (filteredBody.firstname) {
+//     thingsToBeUpdated.firstname = filteredBody.firstname;
+//   }
+//   if (filteredBody.lastname) {
+//     thingsToBeUpdated.lastname = filteredBody.lastname;
+//   }
+//   if (filteredBody.email) {
+//     thingsToBeUpdated.email = filteredBody.email;
+//   }
+//   if (filteredBody.phone) {
+//     thingsToBeUpdated.phone = filteredBody.phone;
+//   }
+//   if (filteredBody.gender) {
+//     thingsToBeUpdated.gender = filteredBody.gender;
+//   }
+//   if (filteredBody.photo) {
+//     thingsToBeUpdated.photo = filteredBody.photo;
+//   }
+//   //3) Update user document
+//   const updatedUser = await User.findByIdAndUpdate(
+//     req.user.id,
+//     thingsToBeUpdated,
+//     {
+//       new: true,
+//       runValidators: true,
+//     }
+//   );
+//   res.status(200).json({
+//     status: "success",
+//     data: { updatedUser },
+//   });
+// });
 exports.findAllCourse = CatchAsync(async (req, res, next) => {
   //basic QUery
   const currentUser = req.user;

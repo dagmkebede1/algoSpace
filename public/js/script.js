@@ -1,7 +1,7 @@
 import { createSpace } from "./studyboard.js";
 import { updateSetting, updatePassword } from "./updatesetting.js";
 import { deleteMe } from "./deleteMe.js";
-import { deleteCourse, createCourse } from "./courseAction";
+import { deleteCourse, createCourse } from "./courseAction.js";
 
 // import { showAlert } from "./alert.js";
 
@@ -137,7 +137,7 @@ if (courseCreateForm) {
     form.append("title", document.getElementById("title").value);
     form.append("price", document.getElementById("price").value);
     form.append("description", document.getElementById("description").value);
-    form.append("instructor", document.getElementById("instructor").value);
+    // form.append("instructor", document.getElementById("instructor").value);
     form.append("photo", document.getElementById("photo").files[0]);
     createCourse(form, "data");
   });
