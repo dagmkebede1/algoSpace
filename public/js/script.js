@@ -1,7 +1,12 @@
 import { createSpace } from "./studyboard.js";
 import { updateSetting, updatePassword } from "./updatesetting.js";
 import { deleteMe } from "./deleteMe.js";
-import { deleteCourse, createCourse, editCourse } from "./courseAction.js";
+import {
+  enrolCourse,
+  deleteCourse,
+  createCourse,
+  editCourse,
+} from "./courseAction.js";
 
 // import { showAlert } from "./alert.js";
 
@@ -113,6 +118,11 @@ if (DelateMeBtn) {
     deleteMe(url);
   });
 }
+/// --- LOADER __________
+let loader = document.getElementById("preloader");
+window.addEventListener("load", () => {
+  loader.style.display = "none";
+});
 
 //------------COURSE ACTIONS-------------//////
 // ---DELETE COURSE
@@ -143,18 +153,31 @@ if (courseCreateForm) {
   });
 }
 // -- EDIT
-const editCourseBtn = document.getElementById("a-href").href;
-const courseEditForm = document.querySelector(".course-edit-form");
-if (courseEditForm) {
-  courseEditForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const form = new FormData();
-    form.append("title", document.getElementById("title").value);
-    form.append("price", document.getElementById("price").value);
-    form.append("description", document.getElementById("description").value);
-    // form.append("instructor", document.getElementById("instructor").value);
-    form.append("photo", document.getElementById("photo").files[0]);
-    const url = editCourseBtn;
-    editCourse(form, url);
+const editCourseBtn = document.getElementById("a-href");
+if (editCourseBtn) {
+  const courseEditForm = document.querySelector(".course-edit-form");
+  if (courseEditForm) {
+    courseEditForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const form = new FormData();
+      form.append("title", document.getElementById("title").value);
+      form.append("price", document.getElementById("price").value);
+      form.append("description", document.getElementById("description").value);
+      // form.append("instructor", document.getElementById("instructor").value);
+      form.append("photo", document.getElementById("photo").files[0]);
+      const url = editCourseBtn.href;
+      editCourse(form, url);
+    });
+  }
+}
+
+// --ENROL
+
+const enrolBtn = document.getElementById("enrol-btn");
+let enrolUrl = document.getElementById("enrol-url");
+if (enrolBtn) {
+  enrolBtn.addEventListener("click", () => {
+    const url = enrolUrl.href;
+    enrolCourse(url);
   });
 }

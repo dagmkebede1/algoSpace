@@ -4,7 +4,7 @@ const AuthController = require("../controller/AuthController");
 const enrolController = require("../controller/enrolController");
 
 //RECIVING THE ENROLED STUDENT ALONG THEIR COURSES
-
+//
 Router.route("/enrol").get(
   AuthController.protect,
   AuthController.restrictTo("admin"),

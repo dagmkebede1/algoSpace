@@ -38,6 +38,26 @@ export const editCourse = async (form, url) => {
     showAlert("error", err.response.data.message);
   }
 };
+export const enrolCourse = async (url) => {
+  try {
+    const res = await axios({
+      method: "POST",
+      url,
+    });
+    if (res.data.status === "success") {
+      await Swal.fire(
+        "Congratulations !",
+        "You have Enrol a course Successfully!, you are Now on Pending when Someone Allows you, you can Start your Course",
+        "success"
+      );
+      window.setTimeout(() => {
+        location.assign("/course");
+      }, 1500);
+    }
+  } catch (err) {
+    showAlert("error", err.response.data.message);
+  }
+};
 
 export const deleteCourse = (deleteUrl) => {
   Swal.fire({

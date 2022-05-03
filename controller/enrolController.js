@@ -7,9 +7,13 @@ exports.createEnrol = CatchAsync(async (req, res, next) => {
   if (!req.body.student) req.body.student = req.user.id;
   if (!req.body.course) req.body.course = req.params.id;
   const newEnrol = new Enrol(req.body);
-
+  //
   const savedEnrol = await newEnrol.save();
   let populated = await savedEnrol.populate("student");
+  await User.findByIdAndUpdate(
+    { _id: req.user.id },
+    { course: "Pendding ... " }
+  );
   // let theID = await populated.student._id;
   //IS THE GUEST ENROLED HE BECOME THE VIRTUAL STUDENT
   // let changing = await User.findByIdAndUpdate(
@@ -19,7 +23,7 @@ exports.createEnrol = CatchAsync(async (req, res, next) => {
   // );
   // console.log(changing);
   res.status(200).json({
-    massage: "success",
+    status: "success",
     data: { populated },
   });
 });

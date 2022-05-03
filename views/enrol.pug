@@ -7,7 +7,8 @@ block content
             img(src= `/img/course/${singleCourse.photo}` alt)
             .header-text
                 h2= `${singleCourse.title}`
-                a.apply(href) Enrol Now 
+                a#enrol-btn.apply(href='#') Enrol Now 
+                a#enrol-url(href= `/course/${singleCourse._id}/enrol`)
         section.about
             p.overview Overview
             p= `${singleCourse.description}`
