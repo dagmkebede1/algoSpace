@@ -49,6 +49,14 @@ const navLinks = document.querySelectorAll("nav a").forEach((link) => {
     link.classList.add("active");
   }
 });
+const manageLinks = document.querySelectorAll(".manage-tab ul a");
+if (manageLinks) {
+  manageLinks.forEach((link) => {
+    if (link.href.includes(`${activePage}`)) {
+      link.classList.add("active");
+    }
+  });
+}
 //toggling for creating new space
 const createSpaceBtn = document.getElementById("createSpaceBtn");
 const createSpaceForm = document.querySelector(".createspace");

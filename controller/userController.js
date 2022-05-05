@@ -131,14 +131,12 @@ exports.findAlluser = CatchAsync(async (req, res, next) => {
 
   if (!allUser) {
     res.status(200).json({
-      message: "success",
+      success: "success",
       data: `there is no User in the system`,
     });
   } else {
-    res.status(200).json({
-      message: "success",
-      data: { allUser },
-    });
+    const currentUser = req.user;
+    res.status(200).render("users", { currentUser, allUser });
   }
 });
 

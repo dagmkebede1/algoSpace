@@ -13,6 +13,7 @@ const hireInstructRouter = require("./route/hiredInstructRouter");
 const studySpaceRouter = require("./route/studyspaceRouter");
 const announcementRouter = require("./route/announcementRouter");
 
+const manageRouter = require("./route/manageRouter");
 const getRouter = require("./route/getRouter");
 const answerRouter = require("./route/answerRouter");
 const path = require("path");
@@ -57,7 +58,7 @@ app.use(
 );
 
 app.get("/pp", (req, res) => {
-  res.status(200).render("profile");
+  res.status(200).render("users");
 });
 // app.get("/ss", (req, res) => {
 //   res.status(200).render("studyspace");
@@ -67,6 +68,7 @@ app.use(authRouter);
 app.use(questionRouter);
 app.use(answerRouter);
 app.use(courseRouter);
+app.use(manageRouter);
 app.use(hireInstructRouter);
 app.use(enrolRouter);
 app.use(studySpaceRouter);

@@ -21,8 +21,8 @@ Router.route("/my/settings").get(userController.getMySetting);
 
 //ONLY FOR ADMIN
 Router.use(AuthController.restrictTo("admin"));
-Router.route("/Users").get(userController.findAlluser);
-Router.route("/Users/:id")
+Router.route("/manage/Users").get(userController.findAlluser);
+Router.route("/manage/Users/:id")
   .get(userController.getUser)
   .patch(userController.updateUserRole)
   .delete(userController.deleteUser);

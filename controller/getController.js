@@ -15,3 +15,8 @@ exports.getBase = CatchAsync(async (req, res, next) => {
 exports.getSingle = CatchAsync(async (req, res, next) => {
   res.status(200).render("single");
 });
+
+exports.getManage = CatchAsync(async (req, res) => {
+  const currentUser = req.user;
+  res.status(200).render("manage", { currentUser });
+});
