@@ -60,7 +60,7 @@ exports.findAllEnrol = CatchAsync(async (req, res, next) => {
     QueryObj.course = { $regex: course, $options: "i" };
   }
 
-  console.log(QueryObj);
+  // console.log(QueryObj);
   let result = Enrol.find(QueryObj);
   if (sort) {
     const sortlist = sort.split(",").join(" ");
@@ -71,15 +71,17 @@ exports.findAllEnrol = CatchAsync(async (req, res, next) => {
   const foundEnrol = await result;
   if (!foundEnrol) {
     res.status(200).json({
-      message: "success",
+      status: "success",
       data: `there is no Enrol in the system`,
     });
   } else {
-    res.status(200).json({
-      message: "success",
-      data: { foundEnrol },
-      total: foundEnrol.length,
-    });
+    // res.status(200).json({
+    //   message: "success",
+    //   data: { foundEnrol },
+    //   total: foundEnrol.length,
+    // });
+    const currentUser = req.user;
+    res.status(200).render("manageEnrol", { currentUser, foundEnrol });
   }
 });
 

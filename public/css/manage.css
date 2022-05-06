@@ -63,7 +63,7 @@ body {
   background: none;
   border-radius: 0px;
 }
-.manage-tab ul li a:is(:link, :active, :visited).active {
+.manage-tab ul li a:is(:link, :active, :visited).active-tab {
   color: #272727;
   font-weight: 500;
   border-bottom: 3px solid darkgreen;

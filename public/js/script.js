@@ -53,7 +53,7 @@ const manageLinks = document.querySelectorAll(".manage-tab ul a");
 if (manageLinks) {
   manageLinks.forEach((link) => {
     if (link.href.includes(`${activePage}`)) {
-      link.classList.add("active");
+      link.classList.add("active-tab");
     }
   });
 }
