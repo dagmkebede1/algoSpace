@@ -9,5 +9,12 @@ Router.route("/ho").get(AuthController.isLoggedIn, getController.getSingle);
 Router.route("/home").get(AuthController.protect, getController.getBase);
 Router.route("/login").get(getController.getLogIn);
 Router.route("/signup").get(getController.getSignup);
+//ALGONET
+Router.route("/algonet").get(
+  AuthController.protect,
+  getController.getAlgoNetHome
+);
+
+Router.route("/algonet/ask").get(AuthController.protect, getController.Ask);
 
 module.exports = Router;

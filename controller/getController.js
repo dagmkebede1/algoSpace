@@ -1,5 +1,6 @@
 const CatchAsync = require("../utils/CatchAsync");
 const User = require("../model/users");
+const Course = require("../model/course");
 
 exports.getLogIn = CatchAsync(async (req, res, next) => {
   res.status(200).render("login");
@@ -19,4 +20,15 @@ exports.getSingle = CatchAsync(async (req, res, next) => {
 exports.getManage = CatchAsync(async (req, res) => {
   const currentUser = req.user;
   res.status(200).render("manage", { currentUser });
+});
+//ALGO NET
+exports.getAlgoNetHome = CatchAsync(async (req, res) => {
+  const currentUser = req.user;
+  res.status(200).render("algoNetHome", { currentUser });
+});
+
+exports.Ask = CatchAsync(async (req, res) => {
+  const currentUser = req.user;
+  const course = await Course.find();
+  res.status(200).render("algoNetPost", { currentUser, course });
 });

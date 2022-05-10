@@ -1,0 +1,33 @@
+extends base
+append css
+  link(rel='stylesheet' href='/css/algonetHome.css')
+block content 
+  header
+    .first-head
+      .logo-filter
+        a(href='#')
+          | Algo
+          span Net
+        .filter
+          label(for='filter') filter by
+          select#filter(name='filter')
+            option(value='algoz system') Algoz system
+            option(value='Programming language') Programming Language
+      .profile
+        a(href='/me')
+          img(src= `/img/users/${currentUser.photo}` alt)
+    .last-head
+      a(href='/algonet/ask') Ask a Question
+  section.qa-section
+    .hero-text
+      h1 The Place where all of your Questions Answered
+      a.explore(href='#') Explore Other's Questions
+    .popular
+      p Top Participants
+      .top-users
+        a(href='#')
+          .pro-cont
+            img(src='ppic.jpg' alt)
+            h2.name Samson Meseret
+            p.role Student
+  footer

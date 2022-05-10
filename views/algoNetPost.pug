@@ -1,0 +1,45 @@
+extends base 
+append css 
+  link(rel='stylesheet' href='/css/algoQuestionPost.css')
+block content
+  header
+    .first-head
+      .logo-filter
+        a(href='#')
+          | Algo
+          span Net
+        .filter
+          label(for='filter') filter by
+          select#filter(name='filter')
+            each item in course
+              option(value= `${item._id}`)= `${item.title}`
+           
+      .profile
+        a(href='#')
+          img(src= `/img/users/${currentUser.photo}` alt)
+    .last-head
+      a(href='#') Ask a Question
+  section.qa-section
+    .question-cont
+      p Post Your Question
+      form.post-form(action='#')
+        label(for='catagory') Category
+        select#category(name='category')
+          each item in course
+            option(value= `${item._id}`)= `${item.title}`
+        label(for='title') Title
+        input#title(name='title' type='text')
+        label(for='question') Question
+        textarea#question(name='question' cols='30' rows='10')
+        label.photo(for='photo') Upload Image
+        input#photo.photo(name='photo' type='file')
+        input(name='submit' type='submit' value='Post')
+    .popular
+      p Top Participants
+      .top-users
+        a(href='#')
+          .pro-cont
+            img(src='ppic.jpg' alt)
+            h2.name Samson Meseret
+            p.role Student
+  footer
