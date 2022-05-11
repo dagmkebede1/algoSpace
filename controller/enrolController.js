@@ -34,9 +34,17 @@ exports.autorizeEnrol = CatchAsync(async (req, res, next) => {
   const foundEnrol = await Enrol.findByIdAndUpdate({ _id: id })
     .populate("student")
     .populate("course");
-  let theID = await foundEnrol.student._id;
-  let theCourse = await foundEnrol.course.title;
+  let theID = foundEnrol.student._id;
+  let theCourse = foundEnrol.course.title;
+  let theStudent = foundEnrol.student;
   //   //IS THE GUEST ENROLED HE BECOME THE VIRTUAL STUDENT
+  if (theStudent.role === "admin") {
+    let changingRight = await User.findByIdAndUpdate(
+      { _id: theID },
+      { course: theCourse },
+      { new: true }
+    );
+  }
   let changingRight = await User.findByIdAndUpdate(
     { _id: theID },
     { role: "student", course: theCourse },

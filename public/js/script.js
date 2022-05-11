@@ -195,9 +195,9 @@ if (enrolBtn) {
 
 const enrolid = document.getElementById("enrolID");
 if (enrolid) {
-  const id = enrolid.href;
   const approveBtn = document.querySelectorAll(".approve");
   approveBtn.forEach((e) => {
+    const id = enrolid.href.split("/")[4];
     e.addEventListener("click", (a) => {
       a.preventDefault();
       console.log(id);
@@ -206,6 +206,7 @@ if (enrolid) {
   });
   const deleteEnrolBtn = document.querySelectorAll(".reject");
   deleteEnrolBtn.forEach((e) => {
+    const id = enrolid.href.split("/")[4];
     e.addEventListener("click", (a) => {
       a.preventDefault();
       deleteEnrol(id);

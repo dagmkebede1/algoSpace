@@ -7,7 +7,7 @@ export const authorizeEnrol = async (id) => {
       url: `/enrol/${id}/authorize`,
     });
     if (res.data.status === "success") {
-      await Swal.fire(
+      Swal.fire(
         "Congratulations !",
         "You have Authorized a Student to Attend a Class",
         "success"
