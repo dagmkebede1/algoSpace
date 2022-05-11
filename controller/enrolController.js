@@ -43,10 +43,12 @@ exports.autorizeEnrol = CatchAsync(async (req, res, next) => {
     { new: true }
   );
 
+  await Enrol.findByIdAndDelete({ _id: id });
+
   res.status(200).json({
     status: "success",
-    changedright: changingRight,
-    tobechanged: foundEnrol,
+    // changedright: changingRight,
+    // tobechanged: foundEnrol,
   });
 });
 exports.findAllEnrol = CatchAsync(async (req, res, next) => {

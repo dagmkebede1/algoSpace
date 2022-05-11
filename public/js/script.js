@@ -7,6 +7,7 @@ import {
   createCourse,
   editCourse,
 } from "./courseAction.js";
+import { deleteEnrol, authorizeEnrol } from "./manage.js";
 
 // import { showAlert } from "./alert.js";
 
@@ -187,5 +188,27 @@ if (enrolBtn) {
   enrolBtn.addEventListener("click", () => {
     const url = enrolUrl.href;
     enrolCourse(url);
+  });
+}
+
+// --------- MANAGE ___ADMIN ______------
+
+const enrolid = document.getElementById("enrolID");
+if (enrolid) {
+  const id = enrolid.href;
+  const approveBtn = document.querySelectorAll(".approve");
+  approveBtn.forEach((e) => {
+    e.addEventListener("click", (a) => {
+      a.preventDefault();
+      console.log(id);
+      authorizeEnrol(id);
+    });
+  });
+  const deleteEnrolBtn = document.querySelectorAll(".reject");
+  deleteEnrolBtn.forEach((e) => {
+    e.addEventListener("click", (a) => {
+      a.preventDefault();
+      deleteEnrol(id);
+    });
   });
 }
