@@ -44,12 +44,13 @@ exports.autorizeEnrol = CatchAsync(async (req, res, next) => {
       { course: theCourse },
       { new: true }
     );
+  } else {
+    let changingRight = await User.findByIdAndUpdate(
+      { _id: theID },
+      { role: "student", course: theCourse },
+      { new: true }
+    );
   }
-  let changingRight = await User.findByIdAndUpdate(
-    { _id: theID },
-    { role: "student", course: theCourse },
-    { new: true }
-  );
 
   await Enrol.findByIdAndDelete({ _id: id });
 

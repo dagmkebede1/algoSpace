@@ -98,7 +98,7 @@ exports.getMySetting = CatchAsync(async (req, res, next) => {
   res.status(200).render("usersetting", { currentUser });
 });
 
-//ONLY FOR ADMINS
+//ONLY FOR ADMINS //
 exports.findAlluser = CatchAsync(async (req, res, next) => {
   const { firstname, lastname, email, sort, field } = req.query;
 
@@ -112,7 +112,7 @@ exports.findAlluser = CatchAsync(async (req, res, next) => {
   if (email) {
     QueryObj.email = { $regex: email, $options: "i" };
   }
-  console.log(QueryObj);
+  // console.log(QueryObj);
   let result = User.find(QueryObj);
   if (sort) {
     const sortlist = sort.split(",").join(" ");
@@ -155,7 +155,7 @@ exports.deleteUser = CatchAsync(async (req, res, next) => {
 
   res.status(204).json({
     status: "success",
-    data: doc,
+    file: doc,
   });
 });
 

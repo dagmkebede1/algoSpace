@@ -1,3 +1,5 @@
+"use Strict";
+
 import { createSpace } from "./studyboard.js";
 import { updateSetting, updatePassword } from "./updatesetting.js";
 import { deleteMe } from "./deleteMe.js";
@@ -7,7 +9,7 @@ import {
   createCourse,
   editCourse,
 } from "./courseAction.js";
-import { deleteEnrol, authorizeEnrol } from "./manage.js";
+import { deleteUser, deleteEnrol, authorizeEnrol } from "./manage.js";
 
 // import { showAlert } from "./alert.js";
 
@@ -192,7 +194,7 @@ if (enrolBtn) {
 }
 
 // --------- MANAGE ___ADMIN ______------
-
+//ENROL
 const enrolid = document.getElementById("enrolID");
 if (enrolid) {
   const approveBtn = document.querySelectorAll(".approve");
@@ -210,6 +212,18 @@ if (enrolid) {
     e.addEventListener("click", (a) => {
       a.preventDefault();
       deleteEnrol(id);
+    });
+  });
+}
+//USER
+
+const Uris = document.querySelectorAll(".uri");
+if (Uris) {
+  Uris.forEach((e) => {
+    const id = e.href.split("/")[4];
+    e.addEventListener("click", (a) => {
+      a.preventDefault();
+      deleteUser(id);
     });
   });
 }

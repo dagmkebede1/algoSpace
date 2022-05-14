@@ -14,6 +14,7 @@ Router.route("/course/:id/enrol").post(
   AuthController.protect,
   enrolController.createEnrol
 );
+//
 Router.route("/enrol/:id").delete(
   AuthController.protect,
   AuthController.restrictTo("admin"),
