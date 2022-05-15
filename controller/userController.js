@@ -141,13 +141,16 @@ exports.findAlluser = CatchAsync(async (req, res, next) => {
 });
 
 exports.getUser = CatchAsync(async (req, res, next) => {
+  const currentUser = req.user;
   const id = req.params.id;
-  const doc = await User.findOne({ _id: id }, { new: true });
+  const suser = await User.findById({ _id: id });
+  // console.log(suser);
+  res.status(200).render("userDisplay", { currentUser, suser });
 
-  res.status(200).json({
-    status: "success",
-    data: doc,
-  });
+  // res.status(200).json({
+  //   status: "success",
+  //   data: doc,
+  // });
 });
 exports.deleteUser = CatchAsync(async (req, res, next) => {
   const id = req.params.id;

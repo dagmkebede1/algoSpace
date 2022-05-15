@@ -18,14 +18,14 @@ block tab
                         tr
                             td
                                 if enrol.student
-                                    a(href)= `${enrol.student.firstname}`
+                                    a(href= `/manage/users/${enrol.student._id}`)= `${enrol.student.firstname}`
                                 else 
-                                    p CurrentUser is Not Available !
+                                    p This User is Not Available !
                             td
                                 if enrol.student
-                                    a(href)= `${enrol.student.lastname}`
+                                    a(href=`/manage/users/${enrol.student._id}`)= `${enrol.student.lastname}`
                             td
-                                a(href)= `${enrol.course.title}`
+                                a(href=`/manage/users/${enrol.student._id}`)= `${enrol.course.title}`
    
                             td.action
                                 a.approve(href=`${enrol._id}`)

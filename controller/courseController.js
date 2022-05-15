@@ -3,6 +3,7 @@ const Course = require("../model/course");
 const AppError = require("../utils/AppError");
 const CatchAsync = require("../utils/CatchAsync");
 const factory = require("./factoryController");
+const User = require("../model/users");
 
 exports.createCourse = CatchAsync(async (req, res, next) => {
   const theBodyData = {
@@ -193,7 +194,9 @@ exports.updateCoursePage = CatchAsync(async (req, res) => {
 
 exports.addCoursePage = CatchAsync(async (req, res) => {
   const currentUser = req.user;
-  res.status(200).render("courseAction", { currentUser });
+  const inst = await User.find({ role: "instructor" });
+
+  res.status(200).render("courseAction", { currentUser, inst });
 });
 
 exports.deleteCourse = factory.deleteOne(Course);

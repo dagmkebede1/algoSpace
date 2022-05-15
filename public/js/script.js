@@ -47,15 +47,25 @@ darkTogle.addEventListener("click", () => {
 
 //active link function
 const activePage = window.location.pathname;
+// console.log(activePage.split("/")[1]);
+let comp2 = activePage.split("/")[1];
+
 const navLinks = document.querySelectorAll("nav a").forEach((link) => {
-  if (link.href.includes(`${activePage}`)) {
+  // console.log(link.href.split("/")[3]);
+  let comp = link.href.split("/")[3];
+  const starts = comp.startsWith(comp2);
+  // console.log(starts);
+  if (starts) {
     link.classList.add("active");
   }
 });
+
 const manageLinks = document.querySelectorAll(".manage-tab ul a");
 if (manageLinks) {
   manageLinks.forEach((link) => {
-    if (link.href.includes(`${activePage}`)) {
+    let cliped = activePage.split("/")[2];
+    let cliped2 = link.href.split("/")[4];
+    if (cliped2.includes(`${cliped}`)) {
       link.classList.add("active-tab");
     }
   });
@@ -158,7 +168,7 @@ if (courseCreateForm) {
     form.append("title", document.getElementById("title").value);
     form.append("price", document.getElementById("price").value);
     form.append("description", document.getElementById("description").value);
-    // form.append("instructor", document.getElementById("instructor").value);
+    form.append("instructor", document.getElementById("instructor").value);
     form.append("photo", document.getElementById("photo").files[0]);
     createCourse(form, "data");
   });
@@ -174,7 +184,7 @@ if (editCourseBtn) {
       form.append("title", document.getElementById("title").value);
       form.append("price", document.getElementById("price").value);
       form.append("description", document.getElementById("description").value);
-      // form.append("instructor", document.getElementById("instructor").value);
+      form.append("instructor", document.getElementById("instructor").value);
       form.append("photo", document.getElementById("photo").files[0]);
       const url = editCourseBtn.href;
       editCourse(form, url);

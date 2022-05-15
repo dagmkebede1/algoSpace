@@ -1,0 +1,56 @@
+extend base
+append css 
+  link(rel='stylesheet', href='/css/setting.css')
+block content
+  .main-item_useraccount
+    .title
+      h2 USER REVIEW
+    .account_form
+      form.profile_form(action='#' method='post')
+        .profile-img
+          if suser.photo 
+            img(src= `/img/users/${suser.photo}` alt)
+            //- label(for="photo") Change
+            //- input#photo(type='file' name='photo' accept='image/*')
+          else
+            img(src= `/img/default.png` alt)
+            //- label(for="photo") Change
+            //- input#photo(type='file' name='photo' accept='image/*')
+        .algo-input-div
+          input#fname(name='firstname' type='text' placeholder= `${suser.firstname}`)
+          label(for='fname') Firstname
+        .algo-input-div
+          input#lname(name='lastname' type='text' placeholder= `${suser.lastname}`)
+          label(for='lname') Lastname
+        .algo-input-div
+          input#email(name='email' type='email' placeholder= `${suser.email}`)
+          label(for='email') Email Address
+        .algo-input-div
+          input#phone(name='phone' type='text' placeholder= `${suser.phone}`)
+          label(for='phone') Phone Number
+        .algo-input-div
+          select#gender(name='gender')
+            option(value="" disabled selected )= `${suser.gender}`
+            option(value='Male') Male
+            option(value='Female') Female
+          label(for='gender') Gender
+      //-   .submit-div
+      //-     a#link-id(href= `${suser._id}`) 
+      //-     input(type='submit' value='UPDATE SETTINGS')
+      //- .simple-line
+      //- p PASSWORD CHANGE
+      //- form.password_form(action='#')
+      //-   .algo-input-div
+      //-     label(for='passwordCurrent') Current Password
+      //-     input#passwordCurrent(name='passwordCurrent' type='password' placeholder= '*********')
+      //-   .algo-input-div
+      //-     label(for='userpassword') New Password
+      //-     input#userpassword(name='password' type='password' )
+      //-   .algo-input-div
+      //-     label(for='passwordConform') Password Confirm
+      //-     input#passwordConform(name='passwordConform' type='password')
+      //-   .submit-div
+      //-     input(type='submit' value='CHANGE PASSWORD')
+      //- .simple-line
+      //- p.warning Dear User if you Delete your Account, there is no way You can RECOVER!
+      //- a.danger-btn(href='') DELETE ACCOUNT
