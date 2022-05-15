@@ -153,7 +153,7 @@ exports.deleteUser = CatchAsync(async (req, res, next) => {
   const id = req.params.id;
   const doc = await User.deleteOne({ _id: id }, { new: true });
 
-  res.status(204).json({
+  res.status(200).json({
     status: "success",
     file: doc,
   });

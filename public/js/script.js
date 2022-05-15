@@ -194,29 +194,34 @@ if (enrolBtn) {
 }
 
 // --------- MANAGE ___ADMIN ______------
-//ENROL
-const enrolid = document.getElementById("enrolID");
-if (enrolid) {
-  const approveBtn = document.querySelectorAll(".approve");
+
+//APPROVE ENROL
+
+const approveBtn = document.querySelectorAll(".approve");
+const rejectBtn = document.querySelectorAll(".reject");
+if (approveBtn) {
   approveBtn.forEach((e) => {
-    const id = enrolid.href.split("/")[4];
+    const id = e.href.split("/")[4];
     e.addEventListener("click", (a) => {
       a.preventDefault();
       console.log(id);
       authorizeEnrol(id);
     });
   });
-  const deleteEnrolBtn = document.querySelectorAll(".reject");
-  deleteEnrolBtn.forEach((e) => {
-    const id = enrolid.href.split("/")[4];
+}
+// REJECT ENROL
+if (rejectBtn) {
+  rejectBtn.forEach((e) => {
+    const id = e.href.split("/")[4];
     e.addEventListener("click", (a) => {
       a.preventDefault();
+      console.log(id);
       deleteEnrol(id);
     });
   });
 }
-//USER
 
+//USER
 const Uris = document.querySelectorAll(".uri");
 if (Uris) {
   Uris.forEach((e) => {

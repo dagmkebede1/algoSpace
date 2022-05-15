@@ -10,10 +10,6 @@ exports.createEnrol = CatchAsync(async (req, res, next) => {
   //
   const savedEnrol = await newEnrol.save();
   let populated = await savedEnrol.populate("student");
-  await User.findByIdAndUpdate(
-    { _id: req.user.id },
-    { course: "Pendding ... " }
-  );
   // let theID = await populated.student._id;
   //IS THE GUEST ENROLED HE BECOME THE VIRTUAL STUDENT
   // let changing = await User.findByIdAndUpdate(
@@ -34,9 +30,9 @@ exports.autorizeEnrol = CatchAsync(async (req, res, next) => {
   const foundEnrol = await Enrol.findByIdAndUpdate({ _id: id })
     .populate("student")
     .populate("course");
-  let theID = foundEnrol.student._id;
-  let theCourse = foundEnrol.course.title;
-  let theStudent = foundEnrol.student;
+  let theID = await foundEnrol.student._id;
+  let theCourse = await foundEnrol.course.title;
+  let theStudent = await foundEnrol.student;
   //   //IS THE GUEST ENROLED HE BECOME THE VIRTUAL STUDENT
   if (theStudent.role === "admin") {
     let changingRight = await User.findByIdAndUpdate(
@@ -45,6 +41,7 @@ exports.autorizeEnrol = CatchAsync(async (req, res, next) => {
       { new: true }
     );
   } else {
+    console.log(theStudent.course);
     let changingRight = await User.findByIdAndUpdate(
       { _id: theID },
       { role: "student", course: theCourse },
@@ -60,6 +57,7 @@ exports.autorizeEnrol = CatchAsync(async (req, res, next) => {
     // tobechanged: foundEnrol,
   });
 });
+
 exports.findAllEnrol = CatchAsync(async (req, res, next) => {
   const { student, course, sort } = req.query;
 
