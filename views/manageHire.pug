@@ -2,7 +2,11 @@ extends manage
 append css
     link(rel='stylesheet' href='/css/manageHire.css')  
 block tab
-    p Total
+    .search
+        form(action='#')
+            input(type='text' placeholder='Search User ...')
+            input(type='submit' value='Search') 
+        p Total: 12
     .enrol-approval-cont
         table
             thead

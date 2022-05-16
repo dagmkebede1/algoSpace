@@ -27,7 +27,7 @@ Router.route("/course/:id")
   );
 
 // --- RENDERING PAGES ------------------/////////////////
-
+//
 Router.route("/course-inst/:id").get(
   AuthController.protect,
   courseController.courseToBeApplied

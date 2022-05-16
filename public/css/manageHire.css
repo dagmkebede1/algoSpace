@@ -9,6 +9,41 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+.search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.search input[type="text"] {
+  padding: 1rem;
+  font-size: 1.4rem;
+  border: none;
+  outline: 1px solid grey;
+  border-top-left-radius: 3rem;
+  border-bottom-left-radius: 3rem;
+}
+.search input[type="text"]:focus,
+.search input[type="text"]:hover {
+  outline: 2px solid #8a39e1;
+}
+.search input[type="submit"] {
+  font-size: 1.4rem;
+  padding: 1rem;
+  outline: 2px solid #8a39e1;
+  border: none;
+  border-top-right-radius: 3rem;
+  border-bottom-right-radius: 3rem;
+}
+.search p {
+  align-self: flex-start;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: grey;
+  margin-left: 10rem;
+  margin-bottom: 1rem;
+}
 .enrol-approval-cont {
   display: flex;
   align-items: center;
@@ -16,7 +51,7 @@ body {
 }
 
 table {
-  margin-top: 100px;
+  /* margin-top: 100px; */
   text-align: left;
   width: auto;
   border-collapse: collapse;
@@ -55,8 +90,8 @@ table .action a:visited {
 }
 table .action a:link svg,
 table .action a:visited svg {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 2.2rem;
+  height: 2.2rem;
 }
 table .action a:link span,
 table .action a:visited span {
@@ -101,4 +136,4 @@ tbody tr:nth-child(odd) {
 
 tbody tr:nth-child(even) {
   background-color: #dae0e3;
-}/*# sourceMappingURL=main.css.map */
+} /*# sourceMappingURL=main.css.map */

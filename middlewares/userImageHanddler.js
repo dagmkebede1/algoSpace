@@ -2,19 +2,6 @@ const multer = require("multer");
 const AppError = require("../utils/AppError");
 const sharp = require("sharp");
 
-// const storage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     cd(null, "./public/img/users");
-//   },
-//   filename: function (req, file, cb) {
-//     // cd(null, new Date().toString() + file.originalname);
-
-//     //user-28649179-33336668.jpg
-//     const ext = file.mimetype.split("/")[1];
-//     cb(null, `user-${req.user.id}-${Date.now()}.${ext}`);
-//   },
-// });
-
 const storage = multer.memoryStorage();
 
 const fileFilter = function (req, file, cb) {
@@ -46,10 +33,13 @@ exports.resizeUserPhotoUpdate = (req, res, next) => {
 
   next();
 };
+
 exports.resizeUserPhotoSignup = (req, res, next) => {
   if (!req.file) return next();
 
-  req.file.filename = `user-${Date.now()}.jpeg`;
+  req.file.filename = `user-${Date.now()}-${Math.round(
+    Math.random() * 1e9
+  )}.jpeg`;
 
   sharp(req.file.buffer)
     .resize(500, 500)
