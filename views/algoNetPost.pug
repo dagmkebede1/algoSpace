@@ -22,8 +22,8 @@ block content
   section.qa-section
     .question-cont
       p Post Your Question
-      form.post-form(action='#')
-        label(for='catagory') Category
+      form.post-form()
+        label(for='category') Category
         select#category(name='category')
           each item in course
             option(value= `${item._id}`)= `${item.title}`
@@ -31,8 +31,8 @@ block content
         input#title(name='title' type='text')
         label(for='question') Question
         textarea#question(name='question' cols='30' rows='10')
-        label.photo(for='photo') Upload Image
-        input#photo.photo(name='photo' type='file')
+        label.photo(for='image') Upload Image
+        input#image.photo(name='image' type='file')
         input(name='submit' type='submit' value='Post')
     .popular
       p Top Participants

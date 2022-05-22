@@ -1,0 +1,75 @@
+extends base 
+append css 
+  link(rel='stylesheet' href='/css/questionAnswer.css')
+block content 
+  header
+    .first-head
+      .logo-filter
+        a(href='#')
+          | Algo
+          span Net
+        .filter
+          label(for='filter') filter by
+          select#filter(name='filter')
+            option(value='algoz system') Algoz system
+            option(value='Programming language') Programming Language
+      .profile
+        a(href='#')
+          img(src='ppic.jpg' alt)
+    .last-head
+      a(href='#') Ask a Question
+  section.qa-section
+    .question-cont
+      .question-item
+        p.title.
+          
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora?
+          
+        .about
+          img(src='ppic.jpg' alt)
+          h3 Samson Meseret
+        .question-text
+          p.
+            
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, nulla ullam similique aspernatur Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis magnam ratione at aperiam distinctio inventore nobis fugit earum minus neque! delectus veniam!
+            
+          img(src='ppic.jpg' alt)
+          .time
+            svg.w-6.h-6(fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg')
+              path(stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z')
+            span 2 min ago
+      .answer-item
+        .ans-cont
+          .person
+            img(src='ppic.jpg' alt)
+            h3 Amanul Meseret
+          p.answer-text.
+            
+            Lorem ipsum Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis, dolor. dolor sit amet consectetur adipisicing elit. Iure, incidunt?
+            
+          .ans-image
+            img(src='ppic.jpg' alt)
+          .about
+            .time
+              svg.w-6.h-6(fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg')
+                path(stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z')
+              span 2 min ago
+      .replay
+        .replay-cont
+          .person
+            img(src='ppic.jpg' alt)
+            h3 Abdela Musa
+          form(action)
+            textarea(name placeholder='Type your Answer ...' cols='60' rows='6')
+            label(for='photo') Upload Image
+            input#photo(name='photo' type='file')
+            input(type='submit' value='Post')
+    .popular
+      p Top Participants
+      .top-users
+        a(href='#')
+          .pro-cont
+            img(src='ppic.jpg' alt)
+            h2.name Samson Meseret
+            p.role Student
+  footer

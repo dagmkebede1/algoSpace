@@ -5,19 +5,19 @@ const AppError = require("../utils/AppError");
 // const Forun = require("../model/forum");
 
 exports.postQuestion = CatchAsync(async (req, res, next) => {
-  if (!req.body.name) req.body.name = req.user.id;
-  const newQuestion = new Question(req.body);
+  let questionForm = {
+    person: req.user.id,
+    category: req.body.category,
+    title: req.body.title,
+    question: req.body.question,
+  };
+  if (req.file) {
+    questionForm.image = req.file.filename;
+  }
+
+  const newQuestion = new Question(questionForm);
 
   const postedQuestion = await newQuestion.save();
-
-  // let modiQuestion = JSON.stringify(postedQuestion._id);
-
-  // let QueSplited = modiQuestion.split('"')[1];
-
-  // if (!req.body.question) req.body.question = QueSplited;
-  // if (!req.body.answers) req.body.answers = [];
-  // const newForum = new Forun(req.body);
-  // const savedForum = newForum.save();
 
   res.status(200).json({
     status: "success",
@@ -68,13 +68,14 @@ exports.getAllQuestions = CatchAsync(async (req, res, next) => {
     QueryObj.content = { $regex: content, $options: "i" };
   }
   const result = Question.find(QueryObj);
-  const foundQuestion = await result;
-  //   foundQuestion.forEach((el) => console.log(el.name));
+  const foundQuestions = await result.sort({ createdAt: -1 });
 
-  res.status(200).json({
-    status: "success",
-    data: foundQuestion,
-  });
+  // res.status(200).json({
+  //   status: "success",
+  //   data: foundQuestions,
+  // });
+  const currentUser = req.user;
+  res.status(200).render("algonetQuestion", { currentUser, foundQuestions });
 });
 exports.getQuestion = CatchAsync(async (req, res, next) => {
   const id = req.params.queId;

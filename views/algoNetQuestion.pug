@@ -1,0 +1,45 @@
+extends base 
+append css
+  link(rel='stylesheet' href='/css/algoNetQuestion.css')
+block content 
+  header
+    .first-head
+      .logo-filter
+        a(href='/algonet')
+          | Algo
+          span Net
+        .filter
+          label(for='filter') filter by
+          select#filter(name='filter')
+            option(value='algoz system') Algoz system
+            option(value='Programming language') Programming Language
+      .profile
+        a(href='#')
+          img(src='ppic.jpg' alt)
+    .last-head
+      a(href='/algonet/ask') Ask a Question
+  section.qa-section
+    .question-cont
+      p.total
+        = `${foundQuestions.length} Questions`
+      if foundQuestions.length > 0
+        each question in foundQuestions
+          .the-question
+            a.question-title(href)= `${question.title}` 
+            .about-que
+              p.time 
+                svg.h-6.w-6(xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2')
+                  path(stroke-linecap='round' stroke-linejoin='round' d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z')
+                = `${question.createdAt}`
+
+              a.asker(href='#')= `${question.person.firstname} ${question.person.lastname}`
+              a.answer(href='#')= `${question.answers.length} Answers`
+    .popular
+      p Top Participants
+      .top-users
+        a(href='#')
+          .pro-cont
+            img(src='ppic.jpg' alt)
+            h2.name Samson Meseret
+            p.role Student
+  footer

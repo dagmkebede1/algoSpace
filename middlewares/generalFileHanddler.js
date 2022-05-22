@@ -41,7 +41,7 @@ const storageForQAImages = multer.diskStorage({
     ) {
       cb(null, "./public/img/QA");
     } else {
-      cb({ error: "file type not supported" });
+      cb(new AppError("Only Image type jpeg/jpg/png are Supported"));
     }
   },
   filename: function (req, file, cb) {

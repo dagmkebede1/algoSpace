@@ -10,6 +10,7 @@ import {
   editCourse,
   getHired,
 } from "./courseAction.js";
+import { postQuestions } from "./algoNetActions.js";
 import { deleteUser, deleteEnrol, authorizeEnrol } from "./manage.js";
 
 // import { showAlert } from "./alert.js";
@@ -204,22 +205,8 @@ if (enrolBtn) {
   });
 }
 
-//Be Hired
+//-----Be Hired
 const hiredForm = document.querySelector(".motive-form");
-// const Search = document.getElementById("search-inst");
-// if (Search) {
-//   const SearchReander = document.querySelector(".hire-item");
-//   Search.addEventListener("keypress", (e) => {
-//     e.preventDefault();
-//     axios({
-//       method: "POST",
-//       url: "/manage/hire",
-//       data: e.target.value,
-//     }).then((res) => {
-//       SearchReander.textContent = res.data;
-//     });
-//   });
-// }
 if (hiredForm) {
   const courseId = window.location.pathname;
   const id = courseId.slice(courseId.lastIndexOf("/") + 1);
@@ -277,4 +264,18 @@ if (Uris) {
   });
 }
 
-//
+//------------ALGO NET __________________------
+
+const questionForm = document.querySelector(".post-form");
+
+if (questionForm) {
+  questionForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const Form = new FormData();
+    Form.append("category", document.getElementById("category").value);
+    Form.append("title", document.getElementById("title").value);
+    Form.append("question", document.getElementById("question").value);
+    Form.append("image", document.getElementById("image").files[0]);
+    postQuestions(Form, "data");
+  });
+}
