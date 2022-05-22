@@ -3,13 +3,18 @@ const HiredInstructor = require("../model/hiredInstructer");
 const User = require("../model/users");
 const factory = require("./factoryController");
 const { path } = require("express/lib/application");
+const AppError = require("../utils/AppError");
 
 exports.beHired = CatchAsync(async (req, res, next) => {
-  const { instructor, course } = req.body;
-  if (!instructor) instructor = req.user.id;
-  if (!course) course = req.params.id;
-
-  const newHired = new HiredInstructor({ instructor, course });
+  const hireForm = {
+    instructor: req.user.id,
+    course: req.params.id,
+    motive: req.body.motive,
+  };
+  if (req.file) {
+    hireForm.cv = req.file.filename;
+  }
+  const newHired = new HiredInstructor(hireForm);
 
   const savedInstuctor = await newHired.save();
 
@@ -72,6 +77,7 @@ exports.findAllHired = CatchAsync(async (req, res, next) => {
     //   total: foundHired.length,
     // });
     const currentUser = req.user;
+    // console.log(foundHired);
     res.status(200).render("manageHire", { currentUser, foundHired });
   }
 });

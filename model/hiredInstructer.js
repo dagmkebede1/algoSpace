@@ -6,7 +6,6 @@ const hireSchema = new mongoose.Schema(
       type: mongoose.Schema.ObjectId,
       ref: "User",
     },
-
     course: {
       type: mongoose.Schema.ObjectId,
       ref: "Course",

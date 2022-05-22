@@ -1,4 +1,5 @@
 .env
 /node_modules
-/public/img/users
+/public/cv
+/public/img
 /otherFiles

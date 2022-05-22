@@ -1,4 +1,5 @@
 const multer = require("multer");
+const AppError = require("../utils/AppError");
 
 // storage Stratagies for PDF
 const storageForPdf = multer.diskStorage({
@@ -21,7 +22,7 @@ const storageForCV = multer.diskStorage({
     if (file.mimetype === "application/pdf") {
       cb(null, "./public/cv");
     } else {
-      cb({ error: "file type not supported" });
+      cb(new AppError("Only PDF is Supported", 404));
     }
   },
   filename: function (req, file, cb) {

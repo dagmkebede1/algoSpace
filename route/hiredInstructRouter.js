@@ -1,6 +1,7 @@
 const express = require("express");
 const Router = express.Router();
 const AuthController = require("../controller/AuthController");
+const CVHanddler = require("../middlewares/generalFileHanddler");
 const HiredInstructorController = require("../controller/hiredInstructorController");
 
 //RECIVING THE ENROLED STUDENT ALONG THEIR COURSES
@@ -12,6 +13,7 @@ Router.route("/manage/hire").get(
 );
 Router.route("/course/:id/Gethired").post(
   AuthController.protect,
+  CVHanddler.uploadCVHanddler,
   HiredInstructorController.beHired
 );
 Router.route("/hireInstructor/:id").delete(

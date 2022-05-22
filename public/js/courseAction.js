@@ -91,3 +91,44 @@ export const deleteCourse = (deleteUrl) => {
     }
   });
 };
+
+export const getHired = async (Form, id) => {
+  try {
+    await axios({
+      method: "POST",
+      url: `/course/${id}/Gethired`,
+      data: Form,
+    })
+      .then((res) => {
+        if (res.data.status === "success") {
+          let timerInterval;
+          Swal.fire({
+            title: "Sending your Application",
+            html: "Uplaoding in <b></b> milliseconds.",
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: () => {
+              Swal.showLoading();
+              const b = Swal.getHtmlContainer().querySelector("b");
+              timerInterval = setInterval(() => {
+                b.textContent = Swal.getTimerLeft();
+              }, 100);
+            },
+            willClose: () => {
+              clearInterval(timerInterval);
+            },
+          }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+              window.location.assign("/course");
+            }
+          });
+        }
+      })
+      .catch((err) => {
+        showAlert("error", err.response.data.message);
+      });
+  } catch (error) {
+    showAlert("error", error);
+  }
+};

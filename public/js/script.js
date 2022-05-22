@@ -8,6 +8,7 @@ import {
   deleteCourse,
   createCourse,
   editCourse,
+  getHired,
 } from "./courseAction.js";
 import { deleteUser, deleteEnrol, authorizeEnrol } from "./manage.js";
 
@@ -203,6 +204,29 @@ if (enrolBtn) {
   });
 }
 
+//Be Hired
+const hiredForm = document.querySelector(".motive-form");
+const Search = document.getElementById("search-inst");
+if (Search) {
+  Search.addEventListener("change", e);
+}
+if (hiredForm) {
+  const courseId = window.location.pathname;
+  const id = courseId.slice(courseId.lastIndexOf("/") + 1);
+  // console.log(id);
+  const cv = document.getElementById("cv");
+  const motive = document.getElementById("motive");
+  hiredForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const Form = new FormData();
+    Form.append("motive", motive.value);
+
+    Form.append("cv", cv.files[0]);
+
+    getHired(Form, id);
+  });
+}
+
 // --------- MANAGE ___ADMIN ______------
 
 //APPROVE ENROL
@@ -242,3 +266,5 @@ if (Uris) {
     });
   });
 }
+
+//

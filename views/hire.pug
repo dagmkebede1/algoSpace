@@ -37,10 +37,11 @@ block content
                         path(stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 5l7 7-7 7')
                     | Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, assumenda.
 
-        form.motive-form(action)
-            label(for="") Application Form 
+        form.motive-form()
+
+            h2 Application Form 
             label(for='motive') Motivation and Experiance
             textarea#motive(name='motive' cols='30' rows='10')
-            label(for="cv") Upload CV 
-            input(type="file") 
+            label.cv-label(for='cv') Upload CV 
+            input#cv(type='file' name='cv' value="uplaod CV") 
             input.apply-btn(type='submit' value='Apply')
