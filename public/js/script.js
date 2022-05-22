@@ -206,10 +206,20 @@ if (enrolBtn) {
 
 //Be Hired
 const hiredForm = document.querySelector(".motive-form");
-const Search = document.getElementById("search-inst");
-if (Search) {
-  Search.addEventListener("change", e);
-}
+// const Search = document.getElementById("search-inst");
+// if (Search) {
+//   const SearchReander = document.querySelector(".hire-item");
+//   Search.addEventListener("keypress", (e) => {
+//     e.preventDefault();
+//     axios({
+//       method: "POST",
+//       url: "/manage/hire",
+//       data: e.target.value,
+//     }).then((res) => {
+//       SearchReander.textContent = res.data;
+//     });
+//   });
+// }
 if (hiredForm) {
   const courseId = window.location.pathname;
   const id = courseId.slice(courseId.lastIndexOf("/") + 1);
